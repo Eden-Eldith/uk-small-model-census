@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{xurl}
+\usepackage[style=numeric,sorting=none,backend=biber]{biblatex}
+\usepackage[colorlinks=true,linkcolor=teal,citecolor=teal,urlcolor=teal]{hyperref}
+\addbibresource{references.bib}
+\setlength{\emergencystretch}{3em}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+\setlist{nosep}
+\hypersetup{pdftitle={Beyond Company Inventories: Finding UK-Based Model Builders on Hugging Face},pdfauthor={Phillip C. O'Brien}}
+
+\title{Beyond Company Inventories:\\Finding UK-Based Model Builders on Hugging Face}
+\author{Phillip C. O'Brien (Eden Eldith)\\
+\small Independent researcher, Gosport, United Kingdom\\
+\small ORCID: \href{https://orcid.org/0009-0007-3961-1182}{0009-0007-3961-1182}}
+\date{30 October 2026}
+
+\begin{document}
+\maketitle
+\input{abstract}
+\textbf{Keywords:} UK AI capability; independent research; small language models;
+model discovery; Hugging Face; AI sovereignty; open research.
+
+\section{Introduction}
+An inventory can miss working AI capability before any assessment of that
+capability has begun. If its entry condition is a registered commercial
+entity, an individual who trains and releases a model without incorporating
+a company is outside its sampling frame. The resulting omission is a
+property of the inventory's design. It does not tell us whether that
+individual's work exists, is discoverable, or has research value.
+
+The UK government's \emph{Artificial Intelligence Sector Study 2025},
+published on 29 October 2026, measures an explicitly commercial population.
+Its inclusion rules require a UK-registered business reporting to Companies
+House and active commercial AI provision. The methodology excludes
+universities, charities, networks and non-registered individual contractors
+\cite{sectorstudy}. That is a consequential boundary when a sector inventory
+is used as a starting point for understanding domestic technical capability:
+research and released models can exist outside the entities it counts.
+
+A separate Council for Science and Technology (CST) recommendation calls for
+mapping existing UK AI activity across computing, data, skills, models,
+governance and adoption \cite{cst}. Its July 2026 letter, published in October,
+also discusses domestic smaller models and a proposed public-interest base
+model from the Alan Turing Institute. A map organised around existing
+capability therefore needs a route to discover builders who do not appear
+in company inventories. This study implements one such route, beginning
+with released models and following their public provenance to people.
+
+The immediate motivation was the author's experience of making WiggleGPT,
+a small language model pretrained from scratch in Gosport, publicly
+available with code, weights and a paper \cite{wigglegpt}. Earlier
+cross-platform research supplied to the author had not identified another
+case meeting a narrower combination of British residence, independent
+funding, personal consumer hardware and original architectural research.
+That history motivates the question; those prior reports are not counted
+as observations in the present dataset. Here the operational question is
+broader and explicitly geographic: who can be found behind every model
+returned by a specified public discovery query, and what UK connections
+do the available sources establish?
+
+The contribution is a complete, dated repository cohort, a source-linked
+location table, and model-level interpretation of UK-connected releases.
+The outputs make each inclusion and unresolved case inspectable. They
+also expose the difference between a catalogue filter, a documented
+training run and an independent research contribution.
+
+\input{methods}
+\input{results}
+
+\section{Discussion}
+\subsection{Capability discovery needs an entry point for individuals}
+The existing company inventory and the proposed capability map answer
+different questions. The former has an explicit registration and commercial
+activity boundary; the latter concerns the resources and skills available
+to the country. A released model is a practical entry point into the second
+question. Its documentation can lead to an individual, a small research
+group, a company or a university without deciding in advance that only
+one of those forms of organisation can produce useful work.
+
+The distinction matters even when a model is small. Writing a training
+system, preparing data, running pretraining, modifying an architecture and
+releasing usable artefacts exercise different capabilities from consuming
+a hosted model. The scale of the checkpoint does not erase those
+capabilities. Equally, a standard-architecture learning project, a task
+fine-tune and an original-architecture pretraining experiment should be
+described in their own terms. Keeping these attributes in separate columns
+lets readers find the kind of work relevant to their purpose.
+
+\subsection{What this means for sovereign AI}
+Domestic capability includes people able to build, inspect and adapt models.
+It also includes their accumulated experimental knowledge and the public
+artefacts through which others can examine or reuse it. This is the aspect
+of sovereignty that a repository census can illuminate. The CST's
+recommendation makes existing activity and dependencies relevant to
+decision-making; the present data provide a small, concrete input to that
+task rather than treating incorporation as a prerequisite for visibility.
+
+The census does not reduce sovereignty to an author's location. A model can
+be built in Britain while using imported chips, international software,
+foreign-origin datasets or a tokenizer developed elsewhere. A useful map
+records those dependencies alongside domestic authorship and control. It
+can then distinguish local technical capability, ownership and public
+availability from claims about independence across the entire supply chain.
+
+\subsection{Discovery has a practical purpose}
+The release is designed to support action on completed work. A reader can
+follow a row to the model, inspect the documented contribution and identify
+its creator. That creates a route to technical collaboration, paid work,
+compute support, sponsorship or a relevant introduction. It also allows an
+institution building a capability inventory to include public research
+without first asking its creator to establish a company or propose a
+different project. This study records no resulting funding, employment or
+compute allocation; it supplies the evidence and discovery route through
+which those outcomes could become possible.
+
+\subsection{A finite search can return positive evidence}
+The motivating catalogue contained fewer than one thousand models. Every
+matching identifier could be enumerated, and each of its 495 publishing
+accounts could be examined. This establishes a concrete alternative to
+answering an existence question with a familiar list of institutions.
+The affirmative results are directly inspectable; unresolved locations
+remain visible rather than being converted into claims of non-existence.
+Future additions can extend the same record instead of forcing the next
+researcher to repeat the discovery work from an empty starting point.
+
+\section{Limitations}
+The result is complete for the collected query, not for all UK model
+development. Metadata choices, missing tags, deleted or private repositories,
+other hosting platforms and the parameter ceiling determine what is
+outside the frame. Current self-reported location may differ from location
+at training time. A publisher may be a republisher, and a model may have
+co-authors whose locations are not documented. The release preserves such
+distinctions, but does not establish the residence of every contributor.
+
+Location research used one assigned AI-assisted review per account, followed
+by consolidation and inspection of the UK findings. It was not a blinded
+multi-rater experiment and no inter-rater reliability statistic is claimed.
+Search failures and public pages with sparse information contribute to the
+unknown category. Model training claims are attributed to their published
+documentation; weights were not downloaded and training runs were not
+replicated for this census. Absent documentation of funding or hardware
+ownership is recorded as unknown.
+
+The author's own model is in the sampling frame and was part of the
+motivation. Its evidence is reported alongside the other cases, with the
+same separation between location, training origin, architecture and
+resources. The disclosed relationship allows readers to assess that
+interest directly.
+
+\section{Conclusion}
+A public model catalogue can reveal UK technical work that a company-based
+inventory is not designed to contain. Enumerating the full query and
+following the releases to their documented creators produces a reusable
+record of both findings and unresolved cases. A broader map of UK AI
+capability can incorporate this kind of evidence now: released work,
+named builders, public sources and explicit dependencies.
+
+\section*{Data and code availability}
+Collection and analysis code, filter configuration and paper sources:
+\url{https://github.com/Eden-Eldith/uk-small-model-census}.
+Raw metadata, the complete model CSV, location evidence and derived views:
+\url{https://huggingface.co/datasets/edeneldith/uk-small-model-census}.
+The collection timestamps and source model revisions identify the dated
+cohort; the data manifest records file hashes. The paper is prepared for
+an author-managed Zenodo deposit. No new paper DOI is asserted before
+that deposit.
+
+\section*{Authorship and assistance}
+The author supplied the research question, discovery filters, substantive
+context and publication decisions. Codex and three delegated research
+agents assisted with collection code, public-source research, data
+consolidation and drafting. AI assistance is not independent replication
+or human verification of every source. The author is the creator of
+WiggleGPT, one of the releases studied.
+
+\printbibliography
+\end{document}

@@ -1,0 +1,18 @@
+{
+  "study_date": "2026-10-30",
+  "task": "text-generation",
+  "language": "en",
+  "library": "pytorch",
+  "num_parameters": "min:0,max:1B",
+  "base_model_relation": "base",
+  "sort_ui": "modified",
+  "sort_api": "lastModified",
+  "direction": -1,
+  "search": "",
+  "inference_provider": null,
+  "hardware": null,
+  "license": null,
+  "expected_ui_count_at_setup": 917,
+  "source_url": "https://huggingface.co/models?pipeline_tag=text-generation&num_parameters=min:0,max:1B&library=pytorch&language=en&base_model_relation=base&sort=modified",
+  "notes": "Reproduce the actual Hub UI range and base filter exactly. Preserve boundary values and missing fields in the raw cohort; distinguish the strict <1,000,000,000 analysis and confirmed training provenance in derived data. No model-name query or country filter is applied."
+}
