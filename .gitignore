@@ -4,7 +4,8 @@ __pycache__/
 work/
 data/
 output/
-paper/figures/
+paper/figures/*
+!paper/figures/obrien-crest.png
 paper/*.pdf
 paper/*.bbl
 paper/*.blg
