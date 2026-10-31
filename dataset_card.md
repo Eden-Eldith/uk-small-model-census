@@ -2,191 +2,74 @@
 license: cc-by-4.0
 language:
 - en
-pretty_name: UK Small-Model Census — 30 October 2026
+pretty_name: UK Small Model Census - What About the Independents Then
 size_categories:
 - n<1K
-task_categories:
-- tabular-classification
 tags:
-- model-discovery
-- uk-ai
+- model-provenance
 - independent-research
-- research-metadata
-- huggingface-hub
+- uk-ai-capability
+- sovereign-ai
 configs:
-- config_name: all_models
-  default: true
+- config_name: accounts
   data_files:
   - split: train
-    path: data/models_all.csv
-- config_name: models_with_locations
+    path: data/account_inventory.csv
+- config_name: models
   data_files:
   - split: train
-    path: data/models_with_locations.csv
-- config_name: researcher_locations
-  data_files:
-  - split: train
-    path: data/researcher_locations.csv
-- config_name: uk_models
-  data_files:
-  - split: train
-    path: data/uk_models.csv
-- config_name: uk_connected_models
-  data_files:
-  - split: train
-    path: data/uk_connected_models.csv
-- config_name: uk_creator_models
-  data_files:
-  - split: train
-    path: data/uk_creator_models.csv
-- config_name: uk_model_evidence
-  data_files:
-  - split: train
-    path: data/uk_model_evidence.csv
-- config_name: uk_affiliations
-  data_files:
-  - split: train
-    path: data/uk_affiliated_models.csv
-- config_name: unresolved_locations
-  data_files:
-  - split: train
-    path: data/location_unknown_models.csv
+    path: data/model_inventory.csv
 ---
 
-# UK small-model census
+# What About the Independents Then: Investigating Small Large Language Models in the UK
 
-A complete dated cohort of **917 model repositories from 495 publishing
-accounts**, with source-linked research into the people and UK connections
-behind those releases. The aim is to make released work discoverable,
-including work outside registered-company inventories.
+Phillip Charles O'Brien (Eden Eldith) · 31 October 2026 · **Version 1.1.0**
 
-The collection ran on **30 October 2026, 12:18:53–12:19:08 UTC**.
-All ten API pages and all 31 website pages returned the same complete set
-of 917 model identifiers. Every account has a location-research record.
+The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. The study follows released models to UK builders outside university and institutional routes, and examines what company-centred sovereign-AI inventories miss.
 
-Eight individual publisher accounts have explicit UK personal locations.
-Model-specific follow-through identifies **16 repositories linked to
-12 UK-located people across 11 publishing accounts**: 15 developer/coauthor
-connections and one dataset/applications contributor. The broader view has
-**30 repositories**, adding 13 UK institutional-affiliation cases and one
-location conflict. **245 accounts remain unresolved**. There are 37 detailed
-model assessments, including seven related collective cases with no
-established model-specific UK connection.
+[Read the paper](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/What_About_the_Independents_Then_2026-10-31.pdf) · [Full 495-account appendix](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/UK_Small_Model_Census_Appendix_2026-10-31.pdf) · [Dataset](https://huggingface.co/datasets/edeneldith/uk-small-model-census) · [Zenodo deposit package](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/release/UK_Small_Model_Census_Zenodo_Package.zip)
 
-## Exact discovery query
+## Actual results
 
-- Task: **Text Generation**
-- Language: **English**
-- Library: **PyTorch**
-- Parameter range: **under 1 billion** in the interface, query `min:0,max:1B`
-- Ancestry selection: **Base only**, query `base_model_relation=base`
-- Sort: **Recently updated**
-- Empty model-name search; no hardware, licence or inference-provider filter
+| Measure | Count |
+|---|---:|
+| Frozen accounts / model repositories | 495 / 917 |
+| Reviewed individual / organisation or collective / unresolved account identities | 398 / 86 / 11 |
+| Primary current/model-period UK-connected people | 18 |
+| UK builders / UK-built model entries | 5 / 7 |
+| UK from-scratch builders / model entries | 3 / 5 |
+| Institutional-route builders among the five UK builders | 4 |
+| Institutional routes among the 18 primary UK-connected people | 17 |
+| Strict-independent UK from-scratch builders | **1** |
+| Unresolved account geography / associated models | 151 / 291 |
 
-[Original query](https://huggingface.co/models?pipeline_tag=text-generation&num_parameters=min:0,max:1B&library=pytorch&language=en&base_model_relation=base&sort=modified)
-and [recorded configuration](config/filters.json).
-All 917 reported parameter counts in this snapshot are strictly below one
-billion. Catalogue membership and verified training provenance are separate.
+**The confirmed strict-independent case is Phillip Charles O'Brien / WiggleGPT.** UK development includes one model with direct project-location evidence and six inferred from dated professional locations. Pietro Lesci is counted as a joint builder of three PolyPythias releases; the exact division of training operations is not established. The five builders are O'Brien, Ahmad Bader, Augusto B. Corrêa, Xinyu Bai and Lesci. O'Brien, Bader and Lesci have from-scratch entries.
 
-## Reading the data
+Account geographic evidence: 9 UK public locations, 1 UK affiliation, 10 mixed, 324 non-UK connections, 151 unresolved. These categories describe sourced geographic connections, not all residence or training-time locations.
 
-| File/configuration | Unit and purpose |
-|---|---|
-| `all_models` | Every one of the 917 original matches; no geographic or quality exclusion |
-| `models_with_locations` | All 917 rows joined to publisher/creator evidence and explicit UK connection types |
-| `researcher_locations` | One record for each of the 495 publisher accounts; identities, location basis, short quotations and URLs |
-| `uk_models` | Models with an identified person's public UK location; includes company research and non-language tasks where the catalogue admitted them |
-| `uk_creator_models` | The 15 rows with identified publishers/developers or model-paper coauthors; excludes the dataset/applications-only contributor row |
-| `uk_connected_models` | Broader union including institutional affiliations and unresolved UK/non-UK location conflicts |
-| `uk_model_evidence` | Training origin, task, architecture, hardware and support, reported independently for UK-connected cases |
-| `uk_affiliations` | Model-specific UK affiliation evidence; not a claim of individual residence |
-| `unresolved_locations` | Models whose publisher-location research remains unresolved |
+Whole-cohort provenance: **250 from-scratch, 207 derived, 20 mirrors, 55 untrained, 385 unresolved**. Evidence levels distinguish explicit publisher statements from detailed model assessments. Repository counts are not counts of unique training runs or people.
 
-`train` is the dataset viewer's table split name. These tables are research
-metadata, not a language-model training corpus. Nested CSV cells contain
-JSON strings; `.jsonl` companions preserve structured annotations.
+## Definitions and fixed population
 
-The **raw** folder contains the complete public API records, website-listing
-records and publisher mapping. It contains no model weights. `collection.json`
-records the exact requests and completeness comparison. `statistics.json`
-contains the final counts. `model_card_sources.csv` and `profile_sources.csv`
-record retrieval provenance; `manifest.json` records file hashes.
+Text Generation · English · PyTorch · under 1B · Base only · Recently Updated · no name search. The archived API and website identifier sets agree. Membership was not expanded or recollected. Base is a discovery tag, not proof of fresh initialisation.
 
-## Location evidence and interpretation
+UK-built refers to the builder's location during development and training; foreign cloud GPUs are a separate field. Strict independence requires no university attendance anywhere (including incomplete study), no institutional affiliation, including a technology day job, and affirmative independent-project evidence. Employment and project sponsorship remain distinct. All overlapping exclusions and unknowns remain in the appendix. No name-based or inferred-demographic analysis is included.
 
-Three research agents each examined a non-overlapping assignment of 165
-accounts. Public Hub profiles, model cards, explicitly linked GitHub identities,
-personal sites and institutional sources were followed. Publisher accounts,
-model creators and republishers are distinguished in the evidence and notes.
+## Files and reproduction
 
-The `location_status` labels describe the account review:
+The dataset supplies the frozen `models_all.csv` and `accounts.csv`, compact `*_inventory_annotations.jsonl` and `builder_classification_inputs.json`, all-account/model inventories, 34 person classifications, 54 detailed model decisions, computed statistics, descriptive summaries, provenance comparisons, context sources and a file-hash manifest. Source links and relevant evidence are public; private recordings, instructions, access logs and working notes are excluded.
 
-- `uk_public_location`: an individual's explicit public UK location, or an
-  organisation's location with its separate evidence basis.
-- `non_uk_public_location`: a documented non-UK geographic link. The basis
-  distinguishes personal self-location, professional affiliation and
-  organisation headquarters; the label does not locate every contributor.
-- `uk_affiliation_only`: UK institutional evidence without a separate
-  attributable personal-location statement.
-- `mixed_locations`: a distributed group or conflicting location sources;
-  details determine which interpretation applies.
-- `unknown`: the examined sources did not establish an attributable location.
+With Python 3.10 or later, install `requirements.txt`, then download this revision's data using `python scripts/download_data.py --revision DATASET_COMMIT_SHA`. Use the dataset's commit history to select the immutable revision; the downloader will not overwrite different local files without `--overwrite`.
 
-Model-level `uk_connection_types` distinguish `individual_public_location`,
-`creator_public_location`, `contributor_public_location`, `institutional_affiliation`, `conflicting_location`
-and `organisation_location`. These can overlap. A company address is not
-assigned to all its researchers. Citizenship, ethnicity and birthplace are
-not inferred. Infrastructure tags such as `region:us` are not author locations.
-
-The detailed model table distinguishes documented pretraining from an
-autogenerated card claim, fine-tuning, partial training and missing evidence.
-Unknown funding does not mean independent funding. Unknown location does
-not mean outside the UK. The source documentation supplies training claims;
-this census did not rerun models or assess their quality.
-
-## Scope
-
-This is the complete result of the specified query at the recorded time,
-not all UK AI research. Metadata omissions, other hosting services, larger,
-private or deleted models fall outside the sampling frame. Some matching
-repositories contain adapters, untrained models, fine-tunes or biological
-sequence models. They remain in the raw cohort, with relevant distinctions
-in the derived evidence. Counts refer to repositories or publisher accounts,
-not automatically to distinct independent researchers.
-
-All 495 public profiles were retrieved successfully. Of 917 pinned raw
-model-card requests, 892 returned text and 25 returned HTTP 401. Where a
-public HTML model card was used instead, its source is labelled accordingly.
-
-## Code, paper and attribution
-
-[Collection and analysis code](https://github.com/Eden-Eldith/uk-small-model-census)
-includes the exact filters and methods. The LaTeX paper is titled
-*Beyond Company Inventories: Finding UK-Based Model Builders on Hugging Face*.
-Its author will handle the Zenodo deposit; no new paper DOI is claimed here.
-
-Author: **Phillip C. O'Brien (Eden Eldith)**,
-[ORCID 0009-0007-3961-1182](https://orcid.org/0009-0007-3961-1182).
-The author created WiggleGPT, a model included in the cohort. Codex and
-three research agents assisted collection, source research and drafting.
-This was not a blinded independent human review of every annotation.
-
-Original compilation and annotations: **CC BY 4.0**. Original code: **MIT**.
-Source metadata and brief quotations retain their attribution and applicable
-rights. The census does not relicense any underlying models or datasets.
-See [licence and attribution](LICENSE.md).
-
-Please cite the dated snapshot and the dataset commit used. Corrections
-can be submitted through a dataset discussion or the code repository's
-issues, with an attributable public source.
-
-```bibtex
-@dataset{obrien2026uksmallmodels,
-  author = {O'Brien, Phillip C.},
-  title = {UK Small-Model Census: Public Releases and Researcher Location Evidence},
-  year = {2026},
-  version = {1.0.0},
-  url = {https://huggingface.co/datasets/edeneldith/uk-small-model-census},
-  note = {Snapshot collected 30 October 2026; cite the dataset commit used}
-}
+```sh
+python scripts/analyse.py
+python scripts/build_appendix.py
 ```
+
+These commands reproduce categories, counts, generated paper tables and appendix from released evidence, without fresh web searches. On Windows with MiKTeX and Biber, `./scripts/build_paper.ps1` builds the main paper. `python scripts/package_review.py` stages the allowlisted public data and builds matching source, data and Zenodo packages. Packaging never publishes automatically.
+
+The original crest and author cover are retained. This correction advances the existing repositories through normal history; v1.0 remains in that history. The Zenodo ZIP is prepared for the author's deposit; no new DOI or deposit is claimed.
+
+[Method](https://github.com/Eden-Eldith/uk-small-model-census/blob/main/METHODS.md) · [Paper source](https://github.com/Eden-Eldith/uk-small-model-census/blob/main/paper/main.tex) · [ORCID](https://orcid.org/0009-0007-3961-1182)
+
+Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model metadata and official statistics retain their source rights. The author created WiggleGPT. Astra and Codex (OpenAI) and Claude (Anthropic) assisted under his direction.

@@ -13,7 +13,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Final LaTeX pass failed' }
     $destination = Join-Path $projectRoot 'output/pdf'
     New-Item -ItemType Directory -Path $destination -Force | Out-Null
-    Copy-Item -LiteralPath 'main.pdf' -Destination (Join-Path $destination 'UK_Small_Model_Census_2026-10-30.pdf')
+    Copy-Item -LiteralPath 'main.pdf' -Destination (Join-Path $destination 'What_About_the_Independents_Then_2026-10-31.pdf')
 } finally {
     Pop-Location
 }

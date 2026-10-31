@@ -1,91 +1,43 @@
-\section{Methods}
+\section{A bounded, evidence-led discovery method}
+The 30 October 2026 snapshot contains \textbf{917 model repositories from
+495 publishing accounts}. The saved query selected Text Generation,
+English, PyTorch, the displayed under-1B parameter range, Base only, and
+Recently Updated, with no name search. The ten API pages and 31 website
+pages agreed on membership. That membership remains frozen; later live
+searches do not replace it.
 
-\subsection{A repository-first sampling frame}
-We began with a concrete discovery query rather than a list of organisations.
-The Hugging Face catalogue was filtered to English, text generation, PyTorch,
-the interface's under-one-billion-parameter range, and its ``Base only''
-selection. No organisation, researcher name, country, hardware, licence,
-inference-provider, popularity or minimum-download restriction was applied.
-The parameter range sent to the service was \texttt{min:0,max:1B}; the base
-relation was \texttt{base}. The results were sorted by recently updated,
-matching the motivating browser view. The complete query is distributed
-with the collection code.
+The PyTorch filter is intentional. In the author's 31 October exploration,
+adding Transformers under the final combination reduced the visible result
+to 552 and hid WiggleGPT; removing that additional library constraint
+restored it. Removing PyTorch in a later configuration produced 7,022
+results. These are recorded live observations illustrating filter sensitivity,
+not alternative census populations or estimates of all UK models.
 
-Following the Hub API approach described in its documentation
-\cite{hfapi}, we traversed every server-provided pagination link. We separately
-retrieved every page of the corresponding website listing, comparing both
-the reported total and the complete set of model identifiers. The collection
-on 30 October 2026 returned 917 distinct models from 495 publishing accounts;
-all 31 website pages and all ten API pages agreed on the identifier set.
-The recorded catalogue parameter counts were all strictly below one billion.
-The collection interval, exact requests and raw responses are retained.
+Classification begins with the downloaded CSV/JSONL records, model cards and
+profiles. Clear organisations, derivatives and overseas connections can be
+recorded immediately. Existing investigations are reused; targeted additional
+sources are needed only for unanswered fields that could change a relevant
+classification. Provenance distinguishes new-initialisation training from
+fine-tuning, continued pretraining, distilled or reused weights, mirrors and
+untrained checkpoints. A catalogue's Base tag is not proof of original
+training. Saved checkpoint comparisons inform the GPT-2 and T5 derivative
+cases; no repeat weight downloads were needed for this revision.
 
-\subsection{What catalogue membership establishes}
-The sampling frame is a dated, reproducible catalogue cohort. Its tags are
-discovery metadata: an English tag does not constitute a language-quality
-evaluation, and a PyTorch tag is not a runtime compatibility test. The
-reported parameter count is taken from the listing, not inferred from the
-repository name. In particular, an uploaded adapter can have a small
-reported tensor count while referring to a larger underlying model.
-The Hub's base-relation filter is recorded separately from evidence of
-training from random initialisation. A model can appear in the filtered
-catalogue even when its documentation describes a derivative or a different
-scientific modality. We preserve these records and report their status
-rather than silently remove inconvenient rows.
+\emph{UK-built} concerns the builder's location while developing and running
+the model. Overseas rented GPUs are recorded separately. Dated study or
+employment overlapping development is distinguished from direct run-location
+evidence and from a current profile with no historical link. \emph{University
+ever} includes incomplete attendance anywhere. \emph{Institutional route}
+includes university, laboratory, company or relevant industry affiliation,
+including a technology day job when the model was a home project.
+Employment does not itself demonstrate that the employer paid for training.
+Affiliation at build time, project backing, funding and compute source remain
+separate fields.
 
-\subsection{Identifying the researchers behind releases}
-The 495 publishing accounts were divided into three non-overlapping groups
-of 165 for AI-assisted source research. Reviewers inspected the public Hub
-profile, the model documentation, and explicitly linked identity sources.
-GitHub profile fields and public profile READMEs were retrieved where the
-Hub profile linked that identity directly. Additional personal and
-institutional pages were examined when needed. Model cards were requested
-at the revision recorded in the model metadata. All 495 profile requests
-succeeded. Of 917 pinned raw model-card requests, 892 returned text and
-25 returned HTTP 401; public HTML alternatives used during review are
-identified separately in the evidence.
-
-Publisher accounts, original creators, republishers and organisations were
-distinguished. A company's headquarters was not assigned as the residence
-of all its researchers. Where a model card named an individual creator,
-the evidence chain was followed to that person. Publicly stated location
-and current institutional affiliation were recorded separately. A profile
-field is described as public self-report; it is not represented as direct
-observation of physical residence.
-
-Location outcomes were UK public location, non-UK public location, UK
-affiliation only, mixed or conflicting locations, and unknown. Each
-assertion retains the source URL, a short relevant quotation, its evidential
-basis and the access date. Names, flags, English-language text, dataset
-geography and infrastructure-region tags were not used to infer nationality
-or residence. An account with insufficient evidence remained in the
-unknown category. Citizenship was not an inclusion requirement for this
-geographic census.
-
-\subsection{Model-level interpretation of UK connections}
-For UK-connected findings we examined documentation for the actual
-generation domain, model creators, pretraining origin, architecture,
-hardware and institutional or commercial support. These are separate
-attributes: a UK location alone does not establish independent funding,
-and a personal repository does not establish ownership of the training
-hardware. Positive claims retain their supporting source; absent evidence
-remains unreported rather than being filled with an assumption.
-
-The primary complete table contains all catalogue matches. Derived views
-distinguish documented UK researchers, UK institutional affiliations,
-unresolved locations and model-level eligibility. Repository counts,
-publisher counts and distinct researchers are reported separately, since
-one person may publish multiple models or checkpoints.
-
-\subsection{Reproducibility and scope}
-Code, filter configuration and paper sources are supplied through GitHub;
-raw public metadata and processed data tables are supplied as a Hugging
-Face dataset. The author's Zenodo deposit will provide the paper record.
-Full working copies of profile pages and model cards support the research;
-the public location table contains relevant facts, short quotations and
-links rather than unrelated personal information.
-
-The cohort does not include private or deleted releases, models on other
-platforms, larger models, or models omitted by these catalogue tags. It is
-therefore a reproducible discovery census within an explicit sampling frame,
-not an enumeration of every model ever trained in the United Kingdom.
+The strict-independent group requires at least one genuinely from-scratch
+natural-language model built in the UK, no university attendance, and no
+institutional affiliation or backing, with independence affirmatively
+supported. A missing biography is not proof of independence. Counts use
+models for provenance, accounts for the complete inventory, and deduplicated
+people for researcher routes. Exclusion reasons can overlap; everyone remains
+visible in the full 495-account companion appendix.

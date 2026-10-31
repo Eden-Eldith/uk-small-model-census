@@ -1,18 +1,13 @@
 cff-version: 1.2.0
-message: "Please cite this dated census and the dataset revision you used."
-title: "UK Small-Model Census: Public Releases and Researcher Location Evidence"
-type: software
+message: "Please cite this dated census and the dataset commit you used."
+title: "What About the Independents Then: Investigating Small Large Language Models in the UK"
+type: dataset
 authors:
   - family-names: "O'Brien"
-    given-names: "Phillip C."
+    given-names: "Phillip Charles"
     orcid: "https://orcid.org/0009-0007-3961-1182"
-version: 1.0.0
-date-released: 2026-10-30
-license: MIT
+version: 1.1.0
+date-released: 2026-10-31
+license: CC-BY-4.0
 repository-code: "https://github.com/Eden-Eldith/uk-small-model-census"
 url: "https://huggingface.co/datasets/edeneldith/uk-small-model-census"
-keywords:
-  - model discovery
-  - UK AI capability
-  - independent research
-  - Hugging Face

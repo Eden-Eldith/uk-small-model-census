@@ -2,6 +2,8 @@ __pycache__/
 *.pyc
 .venv/
 work/
+BRIEF_2026-10-30.md
+PROGRESS.md
 data/
 output/
 paper/figures/*
@@ -18,3 +20,16 @@ paper/*.toc
 paper/*.fls
 paper/*.fdb_latexmk
 paper/*.synctex.gz
+
+# Superseded local drafts are preserved privately, not part of v1.1 publication.
+paper/education_context.tex
+paper/education_table.tex
+paper/tool_limits.tex
+paper/population_table.tex
+paper/people_table.tex
+paper/flow_table.tex
+paper/coverage_table.tex
+scripts/analyse_people.py
+scripts/build_context_tables.py
+scripts/build_people_tables.py
+scripts/build_background_report.py
