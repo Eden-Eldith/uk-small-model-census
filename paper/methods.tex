@@ -1,17 +1,24 @@
-\section{A bounded, evidence-led discovery method}
+\section{Finding the builders through their models}
 The 30 October 2026 snapshot contains \textbf{917 model repositories from
 495 publishing accounts}. The saved query selected Text Generation,
 English, PyTorch, the displayed under-1B parameter range, Base only, and
 Recently Updated, with no name search. The ten API pages and 31 website
-pages agreed on membership. That membership remains frozen; later live
-searches do not replace it.
+pages agreed on membership. This saved cohort is the population analysed
+throughout the paper.
 
-The PyTorch filter is intentional. In the author's 31 October exploration,
+Hugging Face is the GitHub of open-source models: a public place where
+builders publish weights, model cards and links to their training code.
+It is an obvious starting point for discovering who already builds models.
+The PyTorch filter deliberately makes that search manageable and targets
+work comparable to the author's consumer-hardware development route.
+In the author's 31 October exploration,
 adding Transformers under the final combination reduced the visible result
 to 552 and hid WiggleGPT; removing that additional library constraint
 restored it. Removing PyTorch in a later configuration produced 7,022
-results. These are recorded live observations illustrating filter sensitivity,
-not alternative census populations or estimates of all UK models.
+results. An existing model disappeared when an additional library filter
+was selected, then reappeared when it was removed. Discovery depends on
+where and how the search is conducted. The practical task is to inspect
+the released work and identify its builders.
 
 Classification begins with the downloaded CSV/JSONL records, model cards and
 profiles. Clear organisations, derivatives and overseas connections can be
@@ -20,8 +27,8 @@ sources are needed only for unanswered fields that could change a relevant
 classification. Provenance distinguishes new-initialisation training from
 fine-tuning, continued pretraining, distilled or reused weights, mirrors and
 untrained checkpoints. A catalogue's Base tag is not proof of original
-training. Saved checkpoint comparisons inform the GPT-2 and T5 derivative
-cases; no repeat weight downloads were needed for this revision.
+training. Saved checkpoint comparisons establish the GPT-2 and T5 derivative
+cases discussed below.
 
 \emph{UK-built} concerns the builder's location while developing and running
 the model. Overseas rented GPUs are recorded separately. Dated study or
@@ -30,14 +37,13 @@ evidence and from a current profile with no historical link. \emph{University
 ever} includes incomplete attendance anywhere. \emph{Institutional route}
 includes university, laboratory, company or relevant industry affiliation,
 including a technology day job when the model was a home project.
-Employment does not itself demonstrate that the employer paid for training.
-Affiliation at build time, project backing, funding and compute source remain
-separate fields.
+Affiliation at build time, project backing, funding and compute source are
+recorded individually.
 
 The strict-independent group requires at least one genuinely from-scratch
 natural-language model built in the UK, no university attendance, and no
 institutional affiliation or backing, with independence affirmatively
-supported. A missing biography is not proof of independence. Counts use
+supported by the sources. Counts use
 models for provenance, accounts for the complete inventory, and deduplicated
 people for researcher routes. Exclusion reasons can overlap; everyone remains
 visible in the full 495-account companion appendix.

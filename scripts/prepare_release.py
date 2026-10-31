@@ -5,8 +5,8 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-STAGE = ROOT / "work/release/halloween_v1_1/dataset"
-VERSION = "1.1.0"
+STAGE = ROOT / "work/release/sol_v1_1_1/dataset"
+VERSION = "1.1.1"
 TITLE = "What About the Independents Then: Investigating Small Large Language Models in the UK"
 PUBLIC_FILES = [
     "accounts.csv", "models_all.csv", "collection.json", "collection_statistics.json",

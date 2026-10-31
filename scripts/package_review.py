@@ -20,7 +20,7 @@ def main():
     target.mkdir(parents=True, exist_ok=True)
     source = target / "UK_Small_Model_Census_LaTeX_Source.zip"
     zip_files(source, [(ROOT / n, n) for n in CODE_FILES])
-    data_zip = target / "UK_Small_Model_Census_Data_v1.1.0.zip"
+    data_zip = target / f"UK_Small_Model_Census_Data_v{VERSION}.zip"
     data_pairs = [(p, p.relative_to(STAGE).as_posix()) for p in (STAGE / "data").rglob("*") if p.is_file()]
     data_pairs += [(STAGE / "README.md", "README.md"), (STAGE / "LICENSE.md", "LICENSE.md"),
                    (STAGE / "config/filters.json", "config/filters.json")]
@@ -40,7 +40,7 @@ def main():
     meta = target / "zenodo_metadata.json"
     meta.write_text(json.dumps(metadata, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     readme = target / "README.txt"
-    readme.write_text(TITLE+"\nPhillip Charles O'Brien | ORCID 0009-0007-3961-1182\nVersion 1.1.0 | 31 October 2026\n\nThis package contains the paper, full 495-account appendix, LaTeX/source archive, matching dataset, and deposit metadata. It is ready for an author-managed Zenodo deposit. No Zenodo upload or DOI assignment is performed by this command.\n\nOriginal paper and annotations: CC BY 4.0. Code: MIT. Third-party metadata and official statistics retain their source rights. The original O'Brien crest is preserved. Private working material is excluded.\n", encoding="utf-8")
+    readme.write_text(TITLE+"\nPhillip Charles O'Brien | ORCID 0009-0007-3961-1182\nVersion 1.1.1 | 31 October 2026\n\nThis package contains the paper, full 495-account appendix, LaTeX/source archive, matching dataset, and deposit metadata. It is ready for an author-managed Zenodo deposit. No Zenodo upload or DOI assignment is performed by this command.\n\nOriginal paper and annotations: CC BY 4.0. Code: MIT. Third-party metadata and official statistics retain their source rights. The original O'Brien crest is preserved. Private working material is excluded.\n", encoding="utf-8")
     package = target / "UK_Small_Model_Census_Zenodo_Package.zip"
     pairs = [(ROOT / "output/pdf" / n, n) for n in PDF_NAMES]
     pairs += [(source, source.name), (data_zip, data_zip.name), (meta, meta.name), (readme, "README.txt")]

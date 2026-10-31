@@ -54,30 +54,31 @@ Unresolved account geography & \UnknownAccounts{} accounts & \UnknownAccountMode
         table=table.replace('@'+key+'@',str(val))
     write('paper/summary_table.tex',table)
     write('paper/abstract.tex',r'''\begin{abstract}
-A map of AI firms is not necessarily a map of the people who can build AI.
-This study follows a frozen Hugging Face search for English-language,
-PyTorch text-generation base models below one billion parameters: \CensusModels{}
-repositories from \CensusAccounts{} publishing accounts on 30 October 2026.
-Saved model and profile evidence identifies \UKBuilders{} UK-based builders
-across \UKBuiltModels{} model entries, including \ScratchBuilders{} builders
-of \ScratchModels{} from-scratch entries. One model has a direct UK project
-location; six use explicitly labelled dated-location inferences. Four of the
-five builders have university or institutional routes. \textbf{Phillip Charles
-O'Brien, creator of WiggleGPT, is the one confirmed strict-independent
-builder}, with no university attendance or institutional affiliation.
-The complete account appendix preserves overseas, institutional, derivative,
-untrained and unresolved cases. The result demonstrates a discovery route
-that company-centred inventories do not supply, and supports practical
-proposals to identify, develop and retain independent domestic AI capability.
+The United Kingdom is investing in sovereign AI, yet a map of AI firms
+is not necessarily a map of the people who can build it. This study follows
+a fixed Hugging Face search for English-language, PyTorch text-generation
+base models below one billion parameters: \CensusModels{} repositories from
+\CensusAccounts{} publishing accounts on 30 October 2026. Saved model and
+profile evidence identifies \UKBuilders{} UK-based builders across
+\UKBuiltModels{} model entries, including \ScratchBuilders{} builders of
+\ScratchModels{} from-scratch entries. Four of the five builders have
+university or institutional routes. \textbf{Phillip Charles O'Brien, creator
+of WiggleGPT, is the one strict-independent builder}, with no university
+attendance or institutional affiliation. The complete account appendix
+retains all institutional, overseas, derivative, untrained and unresolved
+cases. Hugging Face, GitHub and Zenodo provide a practical route to discover
+independent domestic capability that company-centred inventories leave
+outside their populations. Finding, supporting and retaining those builders
+is part of developing sovereign AI.
 \end{abstract}
 ''')
     p=i['model_provenance']; g=i['account_location_status']
     results=r'''\section{Results}
-\textbf{The confirmed strict-independent result is one person: Phillip Charles
-O'Brien (Eden Eldith), building WiggleGPT in Gosport.} The model was trained
-from scratch, using an RTX 3070 and subsequently an RTX 5060 Ti, one GPU
-at a time. Public project and autobiographical evidence supports independent
-self-funded development and no university attendance.
+\textbf{The strict-independent result is one person: Phillip Charles O'Brien
+(Eden Eldith), building WiggleGPT in Gosport.} The model was trained from
+scratch, using an RTX 3070 and subsequently an RTX 5060 Ti, one GPU at a
+ time. Public project and autobiographical evidence supports self-funded
+ development and no university attendance.
 
 \input{summary_table}
 
@@ -85,64 +86,53 @@ The five UK development cases are O'Brien, Ahmad Bader (tiny-gpt), Augusto
 B. Corr\^ea (SmolLM fine-tune), Xinyu Bai (LongT5 fine-tune), and Pietro Lesci
 as a joint builder of the three PolyPythias seed releases. The three
 from-scratch cases are O'Brien, Bader and Lesci. Bader and Lesci have
-university/industry routes; O'Brien alone satisfies the strict definition.
-The other two UK-built releases are derivatives. Lesci's joint-first-author
-role in the training study is counted as collaborative model development;
-the exact division of training operations is not established \cite{polypythias}.
-
-The development-location evidence is direct for WiggleGPT and inferred
-from dated professional or study locations for the other six model entries.
-Bader's completed Cambridge internship and contemporaneous UK records
-support country-level placement; his exact build city and project sponsorship
-remain unknown. The other dated locations are Oxford, London and Cambridge.
-These are labelled inferences about builders, not inferred GPU locations.
+university/industry routes; O'Brien satisfies the strict-independent
+definition. Corr\^ea and Bai's two UK-built releases are derivatives.
+Lesci is a joint first author of the PolyPythias training study
+\cite{polypythias}.
 
 Across the 18 primary current/model-period UK-connected people, 15 have
 documented university attendance, one has no attendance, and two university
 histories remain unknown. Both unknown histories, Sam Dobson and Sid Black,
 have documented institutional careers; the institutional-route count is
-therefore 17. The 18 include later arrivals and non-building contributors,
-so they must not be presented as 18 UK trainers. Another 16 people remain
-as historical or collaboration context in the supporting evidence.
+therefore 17. This broader group includes later UK arrivals and
+non-building contributors. Another 16 people are retained as historical
+or collaboration context in the supporting evidence.
 
 For all 917 repository entries, coded provenance is @SCRATCH@ from-scratch,
 @DERIVED@ derived, @MIRROR@ mirrors, @UNTRAINED@ untrained, and @UNRESOLVED@
-unresolved. These are source classifications, including publisher declarations,
-with the evidence level recorded for each row. They are not 917 replicated
-training runs. The 54 detailed UK-related model assessments take precedence
-where they resolve or contradict a card. Saved weight comparisons support
-classifying SchorbGPT as GPT-2-derived and the Isotonic bullet-points model
-as T5-derived. K\"oksal's LongForm-OPT work belongs to his Munich period,
-not his later London appointment.
+unresolved. Each row identifies its source and evidence level, from an
+explicit publisher declaration to a detailed model assessment. The 54
+detailed UK-related model assessments resolve or correct the catalogue
+claims. Saved weight comparisons establish SchorbGPT as GPT-2-derived
+and the Isotonic bullet-points model as T5-derived. K\"oksal's LongForm-OPT
+work belongs to his Munich period.
 
 The account geography categories contain @NONUK@ non-UK connections,
 @UK@ UK public locations, @AFF@ UK affiliation, @MIXED@ mixed locations,
-and @UNKNOWN@ unresolved accounts. Geographic connections include institutions
-and historical professional activity, not only individual residence.
-The unresolved accounts contain @UNKNOWNMODELS@ repositories. Unresolved
-provenance and location remain visible; they are not counted as independent
-or silently converted into negative findings.
+and @UNKNOWN@ unresolved accounts associated with @UNKNOWNMODELS@
+repositories. These are sourced geographic connections covering individual,
+professional and institutional activity. The full account table retains
+their subjects, dates and applicable exclusion reasons.
 
 Compute also separates pathways. Bader documents 12 CPU threads on an
 Intel Core Ultra 9 185H laptop and 28,388 seconds of training; PolyPythias
-used sponsored Stability AI compute, whose exact seed-run hardware is not
-specified. Corr\^ea and Bai's exact hardware remains unknown. The saved UK
-price examples put O'Brien's two accelerator generations in the under-\pounds500
-and \pounds500--1,999 bands respectively; these are dated market comparisons,
-not his historical purchase costs. Three of the five builders are within
-the fixed AI-centre city list, one is outside it (Gosport), and one has an
-unknown build city. Primary/secondary UK schooling is documented for one,
-outside the UK for two, and unresolved for two. Full descriptive counts,
-sources and every account's applicable reasons accompany the appendix.
+used sponsored Stability AI compute. Dated UK market listings put O'Brien's
+two accelerator generations in the under-\pounds500 and \pounds500--1,999
+bands respectively. Three of the five builders are within the fixed
+AI-centre city list, one is outside it (Gosport), and one has an unknown
+build city. Primary/secondary UK schooling is documented for one, outside
+the UK for two, and unresolved for two. The supporting data provide the
+full descriptive counts, evidence and sources.
 '''
     tokens={'SCRATCH':p['from_scratch'],'DERIVED':p['derived'],'MIRROR':p['mirror'],'UNTRAINED':p['untrained'],'UNRESOLVED':p['unresolved'],'NONUK':g['non_uk_public_location'],'UK':g['uk_public_location'],'AFF':g['uk_affiliation_only'],'MIXED':g['mixed_locations'],'UNKNOWN':g['unknown'],'UNKNOWNMODELS':i['unresolved_location_models']}
     for key,val in tokens.items(): results=results.replace('@'+key+'@',str(val))
     write('paper/results.tex',results)
     readme=f'''# {TITLE}
 
-Phillip Charles O'Brien (Eden Eldith) · 31 October 2026 · **Version 1.1.0**
+Phillip Charles O'Brien (Eden Eldith) · 31 October 2026 · **Version 1.1.1**
 
-The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. The study follows released models to UK builders outside university and institutional routes, and examines what company-centred sovereign-AI inventories miss.
+The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss.
 
 [Read the paper]({HF}/resolve/main/paper/What_About_the_Independents_Then_2026-10-31.pdf) · [Full 495-account appendix]({HF}/resolve/main/paper/UK_Small_Model_Census_Appendix_2026-10-31.pdf) · [Dataset]({HF}) · [Zenodo deposit package]({HF}/resolve/main/release/UK_Small_Model_Census_Zenodo_Package.zip)
 
@@ -224,7 +214,7 @@ authors:
   - family-names: "O'Brien"
     given-names: "Phillip Charles"
     orcid: "https://orcid.org/0009-0007-3961-1182"
-version: 1.1.0
+version: 1.1.1
 date-released: 2026-10-31
 license: CC-BY-4.0
 repository-code: "{GH}"

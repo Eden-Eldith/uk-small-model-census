@@ -1,8 +1,8 @@
 # What About the Independents Then: Investigating Small Large Language Models in the UK
 
-Phillip Charles O'Brien (Eden Eldith) · 31 October 2026 · **Version 1.1.0**
+Phillip Charles O'Brien (Eden Eldith) · 31 October 2026 · **Version 1.1.1**
 
-The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. The study follows released models to UK builders outside university and institutional routes, and examines what company-centred sovereign-AI inventories miss.
+The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss.
 
 [Read the paper](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/What_About_the_Independents_Then_2026-10-31.pdf) · [Full 495-account appendix](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/UK_Small_Model_Census_Appendix_2026-10-31.pdf) · [Dataset](https://huggingface.co/datasets/edeneldith/uk-small-model-census) · [Zenodo deposit package](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/release/UK_Small_Model_Census_Zenodo_Package.zip)
 
