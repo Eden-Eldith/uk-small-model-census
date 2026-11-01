@@ -14,6 +14,20 @@ ROOT = Path(__file__).resolve().parents[1]
 PROVENANCE = {'from_scratch', 'derived', 'untrained', 'mirror', 'unresolved'}
 INDIVIDUAL_TYPES = {'individual', 'individual_project', 'individual_business', 'individual_publication'}
 UNCERTAIN_TYPES = {'unknown', 'individual_or_research_lab', 'individual_or_collective'}
+UK_COUNTRIES = {'UK', 'United Kingdom', 'England', 'Scotland', 'Wales', 'Northern Ireland'}
+
+
+def geographic_assessment(row):
+    estimate = row.get('recursive_location_estimate') or {}
+    if estimate.get('best_country_estimate'):
+        if estimate['best_country_estimate'] in UK_COUNTRIES:
+            return 'uk_source_connection' if row['location_status'] == 'uk_public_location' else 'uk_estimate'
+        return 'non_uk_connection_or_estimate'
+    if estimate.get('best_region_estimate'):
+        return 'region_or_timezone_clue'
+    return {'uk_public_location': 'uk_source_connection', 'uk_affiliation_only': 'uk_affiliation_only',
+            'mixed_locations': 'mixed_connections', 'non_uk_public_location': 'non_uk_connection_or_estimate',
+            'unknown': 'unresolved'}[row['location_status']]
 
 
 def readl(path):
@@ -65,8 +79,16 @@ def main():
         row = {k: original[k] for k in ['model_id', 'account', 'model_url', 'parameters', 'revision', 'created_at']}
         row.update(ann)
         if mid in decisions:
-            row.update({k: v for k, v in decisions[mid].items() if k != 'model_id'})
+            decision = decisions[mid]
+            row.update({k: v for k, v in decision.items() if k != 'model_id'})
             row['provenance_evidence_level'] = 'detailed_model_assessment'
+            row.pop('origin_assessment_type', None)
+            row.pop('origin_assessment_confidence', None)
+            decision_level = decision.get('provenance_evidence_level', '')
+            if 'inferred' in decision_level and row['model_provenance'] != 'unresolved':
+                row['provenance_evidence_detail'] = decision_level
+                row['origin_assessment_type'] = 'inferred'
+                row['origin_assessment_confidence'] = decision.get('provenance_confidence', 'medium')
             if row.get('from_scratch') in ['yes', 'no']:
                 row['own_from_scratch_lineage'] = row['from_scratch']
             if row['model_provenance'] in {'from_scratch', 'derived', 'mirror'}:
@@ -107,6 +129,7 @@ def main():
                'display_name': original['display_name'], 'profile_url': original['profile_url'],
                'model_count': len(linked), 'model_ids': [r['model_id'] for r in linked]}
         row.update(ann)
+        row['geographic_assessment'] = geographic_assessment(row)
         row['linked_person_ids'] = sorted(person_ids)
         if person_rows:
             row['university_ever_by_linked_person'] = {p['person_id']: p['university_ever'] for p in person_rows}
@@ -140,6 +163,11 @@ def main():
         'reviewed_account_types': dict(collections.Counter(r['reviewed_account_type'] for r in accounts)),
         'account_identity_classes': dict(collections.Counter(r['account_identity_class'] for r in accounts)),
         'account_location_status': dict(collections.Counter(r['location_status'] for r in accounts)),
+        'account_geographic_assessments': dict(collections.Counter(r['geographic_assessment'] for r in accounts)),
+        'unresolved_geography_models': sum(r['model_count'] for r in accounts if r['geographic_assessment'] == 'unresolved'),
+        'origin_evidence_levels': dict(collections.Counter(r['provenance_evidence_level'] for r in models)),
+        'inferred_origin_classifications': sum(r.get('origin_assessment_type') == 'inferred' for r in models),
+        'inferred_from_scratch_classifications': sum(r.get('origin_assessment_type') == 'inferred' and r['model_provenance'] == 'from_scratch' for r in models),
         'model_provenance': dict(collections.Counter(r['model_provenance'] for r in models)),
         'provenance_evidence_levels': dict(collections.Counter(r['provenance_evidence_level'] for r in models)),
         'trained_status': dict(collections.Counter(r['trained_status'] for r in models)),

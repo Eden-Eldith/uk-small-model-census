@@ -1,0 +1,34 @@
+\section{Attributing the underlying model}
+A converted, pruned or refusal-modified release remains the original creator's
+model. Its appearance under another account can make the redistributor much
+more visible than the distinction between the underlying modelling work and
+the subsequent modification. On 31 October 2026, Abiray's profile displayed
+121 model releases and 391 followers. Prominent MiniMax and DeepSeek
+modifications displayed download figures of 768k, 216k and 213k. Kshana, the
+account's own reported pretraining experiment, displayed 13 likes
+\cite{abirayprofile,kshanacard}.
+The high-traffic releases carry the underlying work of other model builders.
+
+The presentation also inflates originality. Kshana carries a
+\texttt{custom-architecture} tag while describing a standard Llama-style
+decoder with grouped-query attention \cite{kshanacard}. Vaniq-Edge, another
+release by the same account, carries a \texttt{base-model} tag; opening its
+repository files and reading \texttt{THIRD\_PARTY\_NOTICES.md} reveals that its
+bundled backend is ``heavily based on the original VITS implementation''
+\cite{vaniqcard,vaniqnotices}. Finding the division of work required digging
+beyond the front-page presentation into the implementation notice.
+
+The frozen files also identify complete redistribution under new model
+names. CrabfishAI's NeXGen-based and NeXGen-large have the same five published
+weight-format objects and configuration blobs as OpenAI's GPT-2 medium and
+large respectively. The SHA-256 identifiers and byte counts match for all
+five formats in each pair; the configuration Git blob identifiers also
+match \cite{nexgenmedium,nexgenlarge,provenancecomparisons}. Their original
+model-building work belongs to OpenAI. The census records these releases
+as mirrors and attributes the upstream models accordingly.
+
+The census therefore follows the underlying work through the publishing
+account. Original training, upstream architecture and implementation,
+inherited checkpoints, and later modifications are recorded separately.
+That evidence identifies who built the model and what the subsequent
+publisher actually changed.

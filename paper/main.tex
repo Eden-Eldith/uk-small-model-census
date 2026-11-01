@@ -13,6 +13,9 @@
 \usepackage[style=numeric,sorting=none,backend=biber]{biblatex}
 \usepackage[colorlinks=true,linkcolor=teal,citecolor=teal,urlcolor=teal]{hyperref}
 \addbibresource{references.bib}
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+\setcounter{biburllcpenalty}{100}
 \setlength{\emergencystretch}{3em}
 \setlength{\parskip}{0.35em}
 \setlength{\parindent}{0pt}
@@ -42,7 +45,7 @@
 {\small ORCID: \href{https://orcid.org/0009-0007-3961-1182}{0009-0007-3961-1182}\par}
 
 \vfill
-{\small 31 October 2026 $\cdot$ Version 1.1.1\par}
+{\small 1 November 2026 $\cdot$ Version 1.2.0\par}
 \vspace{1cm}
 \end{titlepage}
 \hypersetup{pageanchor=true}
@@ -86,6 +89,7 @@ and people whose demonstrated skills warrant research backing.
 
 \input{methods}
 \input{results}
+\input{provenance}
 
 \section{Discoverable models, undiscovered builders}
 WiggleGPT is publicly available with weights, code and an archived paper.
@@ -175,8 +179,10 @@ boundary of research capability.
 
 \section{Evidence coverage}
 The census covers the specified 917-model search on 30 October 2026.
-Public evidence leaves 151 account locations and 385 model origins
-unresolved. Six of the seven UK development entries use dated professional
+The completed follow-through leaves \UnresolvedGeographyAccounts{} account
+locations and \UnresolvedProvenanceModels{} model origins unresolved.
+Country estimates retain their confidence, source and period in the appendix.
+Six of the seven UK development entries use dated professional
 or study-location inferences; WiggleGPT has direct project-location evidence.
 Lesci's joint-first-author role establishes participation in PolyPythias;
 the exact division of training operations is unrecorded. Project sponsorship
@@ -205,7 +211,7 @@ Code, paper and companion appendix:
 \url{https://github.com/Eden-Eldith/uk-small-model-census}.
 Frozen metadata, source-linked classifications and reproducible counts:
 \url{https://huggingface.co/datasets/edeneldith/uk-small-model-census}.
-Version 1.1.1 includes the corrected manuscript and matching Zenodo package
+Version 1.2.0 includes the corrected manuscript and matching Zenodo package
 for author deposit.
 
 Phillip Charles O'Brien supplied the research question, filters, interpretation,

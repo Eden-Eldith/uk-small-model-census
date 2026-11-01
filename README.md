@@ -1,8 +1,8 @@
 # What About the Independents Then: Investigating Small Large Language Models in the UK
 
-Phillip Charles O'Brien (Eden Eldith) · 31 October 2026 · **Version 1.1.1**
+Phillip Charles O'Brien (Eden Eldith) · 1 November 2026 · **Version 1.2.0**
 
-The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss.
+The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss. Britain needs to discover, support and retain the people who already build domestic models; a company inventory leaves independent work outside its starting population.
 
 [Read the paper](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/What_About_the_Independents_Then_2026-10-31.pdf) · [Full 495-account appendix](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/UK_Small_Model_Census_Appendix_2026-10-31.pdf) · [Dataset](https://huggingface.co/datasets/edeneldith/uk-small-model-census) · [Zenodo deposit package](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/release/UK_Small_Model_Census_Zenodo_Package.zip)
 
@@ -12,19 +12,23 @@ The frozen 30 October cohort contains **917 model repositories and 495 publishin
 |---|---:|
 | Frozen accounts / model repositories | 495 / 917 |
 | Reviewed individual / organisation or collective / unresolved account identities | 398 / 86 / 11 |
-| Primary current/model-period UK-connected people | 18 |
+| Primary current/model-period UK-connected people | 19 |
 | UK builders / UK-built model entries | 5 / 7 |
 | UK from-scratch builders / model entries | 3 / 5 |
-| Institutional-route builders among the five UK builders | 4 |
-| Institutional routes among the 18 primary UK-connected people | 17 |
+| Institutional-route builders among the 5 UK builders | 4 |
+| Institutional routes among the 19 primary UK-connected people | 17 |
 | Strict-independent UK from-scratch builders | **1** |
-| Unresolved account geography / associated models | 151 / 291 |
+| UK source connections / UK estimates | 10 / 2 |
+| UK affiliation only / mixed connections | 1 / 11 |
+| Non-UK connections or estimates | 387 |
+| Region or timezone clues | 9 |
+| Unresolved account geography / associated models | 75 / 98 |
 
-**The confirmed strict-independent case is Phillip Charles O'Brien / WiggleGPT.** UK development includes one model with direct project-location evidence and six inferred from dated professional locations. Pietro Lesci is counted as a joint builder of three PolyPythias releases; the exact division of training operations is not established. The five builders are O'Brien, Ahmad Bader, Augusto B. Corrêa, Xinyu Bai and Lesci. O'Brien, Bader and Lesci have from-scratch entries.
+**The confirmed strict-independent case is Phillip Charles O'Brien / WiggleGPT.** UK development includes 1 model with direct project-location evidence and 6 inferred from dated professional locations. Pietro Lesci is counted as a joint builder of three PolyPythias releases; the exact division of training operations is not established. The builders are O'Brien, Ahmad Bader, Augusto B. Corrêa, Xinyu Bai and Lesci. O'Brien, Bader and Lesci have from-scratch entries.
 
-Account geographic evidence: 9 UK public locations, 1 UK affiliation, 10 mixed, 324 non-UK connections, 151 unresolved. These categories describe sourced geographic connections, not all residence or training-time locations.
+The geographic table uses the updated account assessments. The legacy source-location category remains in the data as source history. Follow-through of 151 formerly unanswered accounts supplies 66 country assessments: 23 high, 26 medium and 17 low confidence. Country estimates remain estimates with their confidence and source basis; region-only evidence retains the region. Builder location during training is recorded separately.
 
-Whole-cohort provenance: **250 from-scratch, 207 derived, 20 mirrors, 55 untrained, 385 unresolved**. Evidence levels distinguish explicit publisher statements from detailed model assessments. Repository counts are not counts of unique training runs or people.
+Whole-cohort provenance: **457 from-scratch, 352 derived, 36 mirrors, 60 untrained, 12 unresolved**. Labelled origin inferences cover 237 entries, including 154 of the from-scratch classifications. Each inference retains its confidence and source basis, alongside explicit publisher statements and detailed model assessments. Repository, training-run and person counts remain separate.
 
 ## Definitions and fixed population
 
@@ -34,7 +38,7 @@ UK-built refers to the builder's location during development and training; forei
 
 ## Files and reproduction
 
-The dataset supplies the frozen `models_all.csv` and `accounts.csv`, compact `*_inventory_annotations.jsonl` and `builder_classification_inputs.json`, all-account/model inventories, 34 person classifications, 54 detailed model decisions, computed statistics, descriptive summaries, provenance comparisons, context sources and a file-hash manifest. Source links and relevant evidence are public; private recordings, instructions, access logs and working notes are excluded.
+The dataset supplies the frozen `models_all.csv` and `accounts.csv`, compact `*_inventory_annotations.jsonl` and `builder_classification_inputs.json`, all-account/model inventories, 35 person classifications, 55 detailed model decisions, computed statistics, descriptive summaries, provenance comparisons, context sources and a file-hash manifest. Source links and relevant evidence are public; private recordings, instructions, access logs and working notes are excluded.
 
 With Python 3.10 or later, install `requirements.txt`, then download this revision's data using `python scripts/download_data.py --revision DATASET_COMMIT_SHA`. Use the dataset's commit history to select the immutable revision; the downloader will not overwrite different local files without `--overwrite`.
 

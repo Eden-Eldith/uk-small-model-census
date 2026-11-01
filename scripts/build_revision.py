@@ -2,12 +2,16 @@
 import collections
 import csv
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TITLE = 'What About the Independents Then: Investigating Small Large Language Models in the UK'
 HF = 'https://huggingface.co/datasets/edeneldith/uk-small-model-census'
 GH = 'https://github.com/Eden-Eldith/uk-small-model-census'
+VERSION = '1.2.0'
+RELEASE_DATE = '2026-11-01'
+RELEASE_DATE_TEXT = '1 November 2026'
 
 
 def readl(name):
@@ -21,12 +25,71 @@ def write(name, value):
 def main():
     i = json.loads((ROOT/'data/inventory_statistics.json').read_text(encoding='utf-8'))
     b = json.loads((ROOT/'data/builder_statistics.json').read_text(encoding='utf-8'))
-    counts = {'CensusModels': i['frozen_models'], 'CensusAccounts': i['frozen_accounts'],
+    people = readl('people_classification.jsonl')
+    models = readl('model_decisions.jsonl')
+    inventory_models = readl('model_inventory.jsonl')
+    accounts = readl('account_inventory.jsonl')
+    p = i['model_provenance']
+    g = i['account_geographic_assessments']
+    followthrough = [r['recursive_location_estimate'] for r in accounts if r.get('recursive_location_estimate')]
+    country_estimates = [r for r in followthrough if r.get('best_country_estimate')]
+    country_confidence = collections.Counter(str(r.get('estimate_confidence', 'not_established')).lower() for r in country_estimates)
+    inferred_models = [r for r in inventory_models if r.get('origin_assessment_type') == 'inferred']
+    inferred_scratch = sum(r['model_provenance'] == 'from_scratch' for r in inferred_models)
+    location_evidence = b['uk_built_model_location_evidence']
+    primary_university = b['primary_university_ever']
+    unknown_university_names = ', '.join(r['name'] for r in people
+        if r['analysis_scope'] == 'primary_uk_connection' and r['university_ever'] == 'unknown')
+    trained = i['trained_status']
+    lineage = i['own_from_scratch_lineage']
+    uk = [r for r in people if r['uk_built_model_ids']]
+    model_by_id = {r['model_id']: r for r in models}
+    ctx = json.loads((ROOT/'data/context/census_context.json').read_text(encoding='utf-8'))
+    city_groups = collections.Counter()
+    for person in uk:
+        places = {model_by_id[mid]['builder_location_place'] for mid in person['uk_built_model_ids']}
+        city_groups.update({'unknown' if not place else 'inside' if place in ctx['ai_centre_cities'] else 'outside' for place in places})
+    schooling = b['uk_built_schooling']
+    counts = {'CensusVersion': VERSION, 'CensusRevisionDate': RELEASE_DATE_TEXT,
+              'CensusModels': i['frozen_models'], 'CensusAccounts': i['frozen_accounts'],
               'UKBuilders': b['uk_built_people'], 'UKBuiltModels': b['uk_built_model_entries'],
               'ScratchBuilders': b['uk_from_scratch_people'], 'ScratchModels': b['uk_from_scratch_model_entries'],
               'StrictBuilders': b['strict_independent_people'], 'UKInstitutional': b['uk_built_institutional_route_people'],
               'PrimaryPeople': b['primary_uk_connected_people'], 'PrimaryInstitutional': b['primary_institutional_route_people'],
-              'UnknownAccounts': i['account_location_status']['unknown'], 'UnknownAccountModels': i['unresolved_location_models']}
+              'StrictModels': b['strict_independent_model_entries'],
+              'HistoricalContextPeople': b['historical_or_collaboration_context_people'],
+              'PrimaryUniversityYes': primary_university.get('yes', 0),
+              'PrimaryUniversityNo': primary_university.get('no', 0),
+              'PrimaryUniversityUnknown': primary_university.get('unknown', 0),
+              'DirectUKBuildModels': location_evidence.get('direct_public_statement', 0),
+              'InferredUKBuildModels': location_evidence.get('dated_location_inference', 0),
+              'DetailedModelAssessments': len(models), 'ReviewedPeople': len(people),
+              'ScratchInventoryModels': p.get('from_scratch', 0),
+              'DerivedInventoryModels': p.get('derived', 0), 'MirrorInventoryModels': p.get('mirror', 0),
+              'UntrainedInventoryModels': p.get('untrained', 0),
+              'UnresolvedProvenanceModels': p.get('unresolved', 0),
+              'InferredProvenanceModels': len(inferred_models), 'InferredScratchModels': inferred_scratch,
+              'UnresolvedTrainingModels': trained.get('unknown', 0) + trained.get('not_documented', 0),
+              'EstimatedTrainedModels': trained.get('probably_yes', 0),
+              'UnresolvedOwnScratchLineageModels': lineage.get('unknown', 0),
+              'PartialOwnScratchLineageModels': lineage.get('partial', 0),
+              'InsideAICentreBuilders': city_groups['inside'], 'OutsideAICentreBuilders': city_groups['outside'],
+              'UnknownBuildCityBuilders': city_groups['unknown'],
+              'UKSchoolingBuilders': schooling.get('yes', 0), 'NonUKSchoolingBuilders': schooling.get('no', 0),
+              'UnknownSchoolingBuilders': schooling.get('unknown', 0),
+              'UKSourceConnectionAccounts': g.get('uk_source_connection', 0),
+              'UKEstimateAccounts': g.get('uk_estimate', 0),
+              'UKAffiliationAccounts': g.get('uk_affiliation_only', 0),
+              'MixedConnectionAccounts': g.get('mixed_connections', 0),
+              'NonUKConnectionOrEstimateAccounts': g.get('non_uk_connection_or_estimate', 0),
+              'RegionClueAccounts': g.get('region_or_timezone_clue', 0),
+              'UnresolvedGeographyAccounts': g.get('unresolved', 0),
+              'UnresolvedGeographyModels': i['unresolved_geography_models'],
+              'FollowthroughAccounts': len(followthrough), 'CountryEstimateAccounts': len(country_estimates),
+              'HighCountryEstimateAccounts': country_confidence.get('high', 0),
+              'MediumCountryEstimateAccounts': country_confidence.get('medium', 0),
+              'LowCountryEstimateAccounts': country_confidence.get('low', 0),
+              'UnknownAccounts': g.get('unresolved', 0), 'UnknownAccountModels': i['unresolved_geography_models']}
     write('paper/generated_counts.tex', ''.join('\\newcommand{\\'+k+'}{'+str(v)+'}\n' for k,v in counts.items()))
     table = r'''\begin{table}[htbp]
 \centering\small
@@ -42,11 +105,16 @@ Primary current/model-period UK connections & \PrimaryPeople{} people & -- \\
 UK development: direct or dated-location inference & \UKBuilders{} people & \UKBuiltModels{} \\
 UK from-scratch development & \ScratchBuilders{} people & \ScratchModels{} \\
 UK builders with institutional routes & \UKInstitutional{} people & -- \\
-Strict-independent UK from-scratch development & \StrictBuilders{} person & 1 \\
-Unresolved account geography & \UnknownAccounts{} accounts & \UnknownAccountModels{} \\
+Strict-independent UK from-scratch development & \StrictBuilders{} person & \StrictModels{} \\
+UK source connections / UK estimates & \UKSourceConnectionAccounts{} / \UKEstimateAccounts{} accounts & -- \\
+UK affiliation only / mixed connections & \UKAffiliationAccounts{} / \MixedConnectionAccounts{} accounts & -- \\
+Non-UK connections or estimates & \NonUKConnectionOrEstimateAccounts{} accounts & -- \\
+Region or timezone clues & \RegionClueAccounts{} accounts & -- \\
+Unresolved account geography & \UnresolvedGeographyAccounts{} accounts & \UnresolvedGeographyModels{} \\
+Unresolved model provenance & -- & \UnresolvedProvenanceModels{} \\
 \bottomrule
 \end{tabularx}
-\caption{Account, person and model denominators remain distinct. UK development includes six model entries inferred from dated professional locations and one with direct project-location evidence. Rows overlap.}
+\caption{Account, person and model denominators remain distinct. UK development includes \InferredUKBuildModels{} entries inferred from dated professional locations and \DirectUKBuildModels{} with direct project-location evidence. Country estimates retain their confidence and source basis in the appendix. Rows overlap.}
 \label{tab:counts}
 \end{table}
 '''
@@ -61,7 +129,7 @@ base models below one billion parameters: \CensusModels{} repositories from
 \CensusAccounts{} publishing accounts on 30 October 2026. Saved model and
 profile evidence identifies \UKBuilders{} UK-based builders across
 \UKBuiltModels{} model entries, including \ScratchBuilders{} builders of
-\ScratchModels{} from-scratch entries. Four of the five builders have
+\ScratchModels{} from-scratch entries. \UKInstitutional{} of the \UKBuilders{} builders have
 university or institutional routes. \textbf{Phillip Charles O'Brien, creator
 of WiggleGPT, is the one strict-independent builder}, with no university
 attendance or institutional affiliation. The complete account appendix
@@ -72,7 +140,6 @@ outside their populations. Finding, supporting and retaining those builders
 is part of developing sovereign AI.
 \end{abstract}
 ''')
-    p=i['model_provenance']; g=i['account_location_status']
     results=r'''\section{Results}
 \textbf{The strict-independent result is one person: Phillip Charles O'Brien
 (Eden Eldith), building WiggleGPT in Gosport.} The model was trained from
@@ -82,79 +149,99 @@ scratch, using an RTX 3070 and subsequently an RTX 5060 Ti, one GPU at a
 
 \input{summary_table}
 
-The five UK development cases are O'Brien, Ahmad Bader (tiny-gpt), Augusto
+The UK development cases are O'Brien, Ahmad Bader (tiny-gpt), Augusto
 B. Corr\^ea (SmolLM fine-tune), Xinyu Bai (LongT5 fine-tune), and Pietro Lesci
-as a joint builder of the three PolyPythias seed releases. The three
+as a joint builder of the three PolyPythias seed releases. The
 from-scratch cases are O'Brien, Bader and Lesci. Bader and Lesci have
 university/industry routes; O'Brien satisfies the strict-independent
 definition. Corr\^ea and Bai's two UK-built releases are derivatives.
 Lesci is a joint first author of the PolyPythias training study
 \cite{polypythias}.
 
-Across the 18 primary current/model-period UK-connected people, 15 have
-documented university attendance, one has no attendance, and two university
-histories remain unknown. Both unknown histories, Sam Dobson and Sid Black,
-have documented institutional careers; the institutional-route count is
-therefore 17. This broader group includes later UK arrivals and
-non-building contributors. Another 16 people are retained as historical
+Across the \PrimaryPeople{} primary current/model-period UK-connected people, \PrimaryUniversityYes{} have
+documented university attendance, \PrimaryUniversityNo{} has no attendance, and \PrimaryUniversityUnknown{} university
+histories remain unknown: @UNKNOWNUNINAMES@. Institutional careers are
+recorded separately; the institutional-route count is
+\PrimaryInstitutional{}. This broader group includes later UK arrivals and
+non-building contributors. Another \HistoricalContextPeople{} people are retained as historical
 or collaboration context in the supporting evidence.
 
-For all 917 repository entries, coded provenance is @SCRATCH@ from-scratch,
+For all \CensusModels{} repository entries, coded provenance is @SCRATCH@ from-scratch,
 @DERIVED@ derived, @MIRROR@ mirrors, @UNTRAINED@ untrained, and @UNRESOLVED@
 unresolved. Each row identifies its source and evidence level, from an
-explicit publisher declaration to a detailed model assessment. The 54
+explicit publisher declaration to a supported origin inference or detailed
+model assessment. \InferredProvenanceModels{} entries use labelled
+origin inferences; \InferredScratchModels{} of
+the from-scratch classifications use those inferences. Confidence and the
+specific training or lineage basis remain attached to each inference. The \DetailedModelAssessments{}
 detailed UK-related model assessments resolve or correct the catalogue
 claims. Saved weight comparisons establish SchorbGPT as GPT-2-derived
 and the Isotonic bullet-points model as T5-derived. K\"oksal's LongForm-OPT
 work belongs to his Munich period.
 
-The account geography categories contain @NONUK@ non-UK connections,
-@UK@ UK public locations, @AFF@ UK affiliation, @MIXED@ mixed locations,
-and @UNKNOWN@ unresolved accounts associated with @UNKNOWNMODELS@
-repositories. These are sourced geographic connections covering individual,
-professional and institutional activity. The full account table retains
-their subjects, dates and applicable exclusion reasons.
+The updated account geography categories contain
+\UKSourceConnectionAccounts{} UK source connections,
+\UKEstimateAccounts{} UK estimates, \UKAffiliationAccounts{} UK affiliation-only
+cases, \MixedConnectionAccounts{} mixed connections,
+\NonUKConnectionOrEstimateAccounts{} non-UK connections or estimates, and
+\RegionClueAccounts{} region or timezone clues.
+\UnresolvedGeographyAccounts{} accounts associated with
+\UnresolvedGeographyModels{} repositories remain geographically unresolved.
+The follow-through of \FollowthroughAccounts{} accounts supplies
+\CountryEstimateAccounts{} country assessments: \HighCountryEstimateAccounts{}
+high, \MediumCountryEstimateAccounts{} medium and \LowCountryEstimateAccounts{}
+low confidence. An estimate retains its confidence and stated basis;
+regional evidence retains its region. The full account table records
+the subject and date of each connection, current-base estimate and
+model-period inference, alongside applicable exclusion reasons.
 
 Compute also separates pathways. Bader documents 12 CPU threads on an
 Intel Core Ultra 9 185H laptop and 28,388 seconds of training; PolyPythias
 used sponsored Stability AI compute. Dated UK market listings put O'Brien's
 two accelerator generations in the under-\pounds500 and \pounds500--1,999
-bands respectively. Three of the five builders are within the fixed
-AI-centre city list, one is outside it (Gosport), and one has an unknown
-build city. Primary/secondary UK schooling is documented for one, outside
-the UK for two, and unresolved for two. The supporting data provide the
+bands respectively. \InsideAICentreBuilders{} of the \UKBuilders{} builders are within the fixed
+AI-centre city list, \OutsideAICentreBuilders{} is outside it (Gosport), and
+\UnknownBuildCityBuilders{} has an unknown build city. Primary/secondary UK
+schooling is documented for \UKSchoolingBuilders{}, outside the UK for
+\NonUKSchoolingBuilders{}, and unresolved for \UnknownSchoolingBuilders{}.
+The supporting data provide the
 full descriptive counts, evidence and sources.
 '''
-    tokens={'SCRATCH':p['from_scratch'],'DERIVED':p['derived'],'MIRROR':p['mirror'],'UNTRAINED':p['untrained'],'UNRESOLVED':p['unresolved'],'NONUK':g['non_uk_public_location'],'UK':g['uk_public_location'],'AFF':g['uk_affiliation_only'],'MIXED':g['mixed_locations'],'UNKNOWN':g['unknown'],'UNKNOWNMODELS':i['unresolved_location_models']}
+    tokens={'SCRATCH':p['from_scratch'],'DERIVED':p['derived'],'MIRROR':p['mirror'],'UNTRAINED':p['untrained'],'UNRESOLVED':p['unresolved']}
+    results=results.replace('@UNKNOWNUNINAMES@',unknown_university_names)
     for key,val in tokens.items(): results=results.replace('@'+key+'@',str(val))
     write('paper/results.tex',results)
     readme=f'''# {TITLE}
 
-Phillip Charles O'Brien (Eden Eldith) · 31 October 2026 · **Version 1.1.1**
+Phillip Charles O'Brien (Eden Eldith) · {RELEASE_DATE_TEXT} · **Version {VERSION}**
 
-The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss.
+The frozen 30 October cohort contains **{i['frozen_models']} model repositories and {i['frozen_accounts']} publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss. Britain needs to discover, support and retain the people who already build domestic models; a company inventory leaves independent work outside its starting population.
 
-[Read the paper]({HF}/resolve/main/paper/What_About_the_Independents_Then_2026-10-31.pdf) · [Full 495-account appendix]({HF}/resolve/main/paper/UK_Small_Model_Census_Appendix_2026-10-31.pdf) · [Dataset]({HF}) · [Zenodo deposit package]({HF}/resolve/main/release/UK_Small_Model_Census_Zenodo_Package.zip)
+[Read the paper]({HF}/resolve/main/paper/What_About_the_Independents_Then_2026-10-31.pdf) · [Full {i['frozen_accounts']}-account appendix]({HF}/resolve/main/paper/UK_Small_Model_Census_Appendix_2026-10-31.pdf) · [Dataset]({HF}) · [Zenodo deposit package]({HF}/resolve/main/release/UK_Small_Model_Census_Zenodo_Package.zip)
 
 ## Actual results
 
 | Measure | Count |
 |---|---:|
-| Frozen accounts / model repositories | 495 / 917 |
-| Reviewed individual / organisation or collective / unresolved account identities | 398 / 86 / 11 |
+| Frozen accounts / model repositories | {i['frozen_accounts']} / {i['frozen_models']} |
+| Reviewed individual / organisation or collective / unresolved account identities | {i['account_identity_classes']['individual']} / {i['account_identity_classes']['organisation_or_collective']} / {i['account_identity_classes']['unresolved_entity_type']} |
 | Primary current/model-period UK-connected people | {b['primary_uk_connected_people']} |
 | UK builders / UK-built model entries | {b['uk_built_people']} / {b['uk_built_model_entries']} |
 | UK from-scratch builders / model entries | {b['uk_from_scratch_people']} / {b['uk_from_scratch_model_entries']} |
-| Institutional-route builders among the five UK builders | {b['uk_built_institutional_route_people']} |
-| Institutional routes among the 18 primary UK-connected people | {b['primary_institutional_route_people']} |
+| Institutional-route builders among the {b['uk_built_people']} UK builders | {b['uk_built_institutional_route_people']} |
+| Institutional routes among the {b['primary_uk_connected_people']} primary UK-connected people | {b['primary_institutional_route_people']} |
 | Strict-independent UK from-scratch builders | **{b['strict_independent_people']}** |
-| Unresolved account geography / associated models | {g['unknown']} / {i['unresolved_location_models']} |
+| UK source connections / UK estimates | {g.get('uk_source_connection', 0)} / {g.get('uk_estimate', 0)} |
+| UK affiliation only / mixed connections | {g.get('uk_affiliation_only', 0)} / {g.get('mixed_connections', 0)} |
+| Non-UK connections or estimates | {g.get('non_uk_connection_or_estimate', 0)} |
+| Region or timezone clues | {g.get('region_or_timezone_clue', 0)} |
+| Unresolved account geography / associated models | {g.get('unresolved', 0)} / {i['unresolved_geography_models']} |
 
-**The confirmed strict-independent case is Phillip Charles O'Brien / WiggleGPT.** UK development includes one model with direct project-location evidence and six inferred from dated professional locations. Pietro Lesci is counted as a joint builder of three PolyPythias releases; the exact division of training operations is not established. The five builders are O'Brien, Ahmad Bader, Augusto B. Corrêa, Xinyu Bai and Lesci. O'Brien, Bader and Lesci have from-scratch entries.
+**The confirmed strict-independent case is Phillip Charles O'Brien / WiggleGPT.** UK development includes {location_evidence.get('direct_public_statement', 0)} model with direct project-location evidence and {location_evidence.get('dated_location_inference', 0)} inferred from dated professional locations. Pietro Lesci is counted as a joint builder of three PolyPythias releases; the exact division of training operations is not established. The builders are O'Brien, Ahmad Bader, Augusto B. Corrêa, Xinyu Bai and Lesci. O'Brien, Bader and Lesci have from-scratch entries.
 
-Account geographic evidence: {g['uk_public_location']} UK public locations, {g['uk_affiliation_only']} UK affiliation, {g['mixed_locations']} mixed, {g['non_uk_public_location']} non-UK connections, {g['unknown']} unresolved. These categories describe sourced geographic connections, not all residence or training-time locations.
+The geographic table uses the updated account assessments. The legacy source-location category remains in the data as source history. Follow-through of {len(followthrough)} formerly unanswered accounts supplies {len(country_estimates)} country assessments: {country_confidence.get('high', 0)} high, {country_confidence.get('medium', 0)} medium and {country_confidence.get('low', 0)} low confidence. Country estimates remain estimates with their confidence and source basis; region-only evidence retains the region. Builder location during training is recorded separately.
 
-Whole-cohort provenance: **{p['from_scratch']} from-scratch, {p['derived']} derived, {p['mirror']} mirrors, {p['untrained']} untrained, {p['unresolved']} unresolved**. Evidence levels distinguish explicit publisher statements from detailed model assessments. Repository counts are not counts of unique training runs or people.
+Whole-cohort provenance: **{p['from_scratch']} from-scratch, {p['derived']} derived, {p['mirror']} mirrors, {p['untrained']} untrained, {p['unresolved']} unresolved**. Labelled origin inferences cover {len(inferred_models)} entries, including {inferred_scratch} of the from-scratch classifications. Each inference retains its confidence and source basis, alongside explicit publisher statements and detailed model assessments. Repository, training-run and person counts remain separate.
 
 ## Definitions and fixed population
 
@@ -164,7 +251,7 @@ UK-built refers to the builder's location during development and training; forei
 
 ## Files and reproduction
 
-The dataset supplies the frozen `models_all.csv` and `accounts.csv`, compact `*_inventory_annotations.jsonl` and `builder_classification_inputs.json`, all-account/model inventories, 34 person classifications, 54 detailed model decisions, computed statistics, descriptive summaries, provenance comparisons, context sources and a file-hash manifest. Source links and relevant evidence are public; private recordings, instructions, access logs and working notes are excluded.
+The dataset supplies the frozen `models_all.csv` and `accounts.csv`, compact `*_inventory_annotations.jsonl` and `builder_classification_inputs.json`, all-account/model inventories, {len(people)} person classifications, {len(models)} detailed model decisions, computed statistics, descriptive summaries, provenance comparisons, context sources and a file-hash manifest. Source links and relevant evidence are public; private recordings, instructions, access logs and working notes are excluded.
 
 With Python 3.10 or later, install `requirements.txt`, then download this revision's data using `python scripts/download_data.py --revision DATASET_COMMIT_SHA`. Use the dataset's commit history to select the immutable revision; the downloader will not overwrite different local files without `--overwrite`.
 
@@ -182,11 +269,37 @@ The original crest and author cover are retained. This correction advances the e
 Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model metadata and official statistics retain their source rights. The author created WiggleGPT. Astra and Codex (OpenAI) and Claude (Anthropic) assisted under his direction.
 '''
     write('README.md',readme)
+    method_path = ROOT/'METHODS.md'
+    method = method_path.read_text(encoding='utf-8')
+    followthrough_text = f'''The account follow-through covered all 151 previously unresolved accounts. The first 34 completed investigations were retained. Three agents divided the remaining 117 accounts, starting with each frozen model's card and community discussion, then reading the creator's profile and linked social, personal and GitHub pages. The time ceiling was three minutes per account. A final targeted discovery pass followed the remaining unanswered country and origin fields, including exact creator-name/handle searches and previously unread linked pages. Missing raw-file responses were followed through the rendered file page at the same frozen revision. Previously settled biographies and model investigations were reused. The current follow-through supplies {len(country_estimates)} country assessments ({country_confidence.get('high',0)} high, {country_confidence.get('medium',0)} medium and {country_confidence.get('low',0)} low confidence), with {g.get('region_or_timezone_clue',0)} region/timezone-only clues and {g.get('unresolved',0)} geographically unresolved accounts.\n\n'''
+    method = re.sub(r'The account follow-through covered.*?(?=The public account)', lambda _:followthrough_text, method, count=1, flags=re.S)
+    provenance_text = f'''The public account and model annotations record the source basis and evidence level, including publisher declarations, model-specific training evidence, exact-file comparisons and labelled inferences. The resulting model classifications are {p['from_scratch']} from scratch, {p['derived']} derived, {p['mirror']} mirrors, {p['untrained']} untrained and {p['unresolved']} unresolved. Of the {p['from_scratch']} from-scratch classifications, {inferred_scratch} use labelled origin inferences. Original training, inherited architecture or code, upstream checkpoints and subsequent modifications are separate fields. A developer's own from-scratch lineage is retained when a final released checkpoint is a later derivative. The saved GPT-2/T5 comparisons and exact weight-file identifiers supply model-specific evidence where presentation conflicts with the files.\n\n'''
+    method = re.sub(r'The public account.*?(?=## People)', lambda _:provenance_text, method, count=1, flags=re.S)
+    method = re.sub(r'Six of the seven identified UK-built entries use dated-location inference\.', f"{location_evidence.get('dated_location_inference',0)} of the {b['uk_built_model_entries']} identified UK-built entries use dated-location inference.", method)
+    method = re.sub(r'for the \d+-person detailed evidence set', f'for the {len(people)}-person detailed evidence set', method)
+    method = re.sub(r'The \d+ primary UK-connected people', f"The {b['primary_uk_connected_people']} primary UK-connected people", method)
+    unknown_primary = [r for r in people if r['analysis_scope']=='primary_uk_connection' and r['university_ever']=='unknown']
+    unknown_institutional = sum(r['institutional_route']=='yes' for r in unknown_primary)
+    method = re.sub(r'Both university-unknown primary people have established institutional careers\.|Of the \d+ university-unknown primary people, \d+ have established institutional careers\.', f'Of the {len(unknown_primary)} university-unknown primary people, {unknown_institutional} have established institutional careers.', method)
+    write('METHODS.md',method)
+    write('CHANGELOG.md',f'''# Census revision history
+
+## {VERSION} — {RELEASE_DATE_TEXT}
+
+- Retains the frozen 917-model / 495-account population and the original author cover and crest.
+- Uses the author's title, independent-builder research question and sovereignty argument; removes the superseded name-based demographic analysis from the active paper and release.
+- Classifies {p['from_scratch']} from-scratch releases, {p['derived']} derivatives, {p['mirror']} mirrors and {p['untrained']} untrained checkpoints; {p['unresolved']} model origins remain unanswered. The previous published revision had 385 unanswered origins.
+- Identifies {b['uk_built_people']} UK-based builders across {b['uk_built_model_entries']} frozen entries, including {b['uk_from_scratch_people']} from-scratch builders. The strict-independent result is {b['strict_independent_people']}: Phillip Charles O'Brien / WiggleGPT.
+- Completes the 151-account follow-through and targeted missing-source discovery. Current geography includes {len(country_estimates)} country assessments in that group, {g.get('region_or_timezone_clue',0)} region/timezone clues and {g.get('unresolved',0)} unresolved accounts.
+- Rebuilds the full 495-account appendix, generated counts, reproducible evidence inputs, source/data archives and author-managed Zenodo deposit package together. Private transcripts, working notes and source-access logs remain local.
+
+Earlier revisions remain available in the normal GitHub and Hugging Face commit histories.
+''')
     write('dataset_card.md','''---
 license: cc-by-4.0
 language:
 - en
-pretty_name: UK Small Model Census - What About the Independents Then
+pretty_name: "'''+TITLE+'''"
 size_categories:
 - n<1K
 tags:
@@ -214,16 +327,12 @@ authors:
   - family-names: "O'Brien"
     given-names: "Phillip Charles"
     orcid: "https://orcid.org/0009-0007-3961-1182"
-version: 1.1.1
-date-released: 2026-10-31
+version: {VERSION}
+date-released: {RELEASE_DATE}
 license: CC-BY-4.0
 repository-code: "{GH}"
 url: "{HF}"
 ''')
-    people=readl('people_classification.jsonl'); models=readl('model_decisions.jsonl')
-    uk=[r for r in people if r['uk_built_model_ids']]
-    model_by_id={r['model_id']:r for r in models}
-    ctx=json.loads((ROOT/'data/context/census_context.json').read_text(encoding='utf-8'))
     summary=[]
     for route, subset in [('all',uk),('strict_independent',[r for r in uk if r['strict_independent']]),('institutional',[r for r in uk if r['institutional_route']=='yes'])]:
         dims=collections.defaultdict(collections.Counter)

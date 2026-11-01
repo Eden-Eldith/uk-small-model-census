@@ -5,8 +5,9 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-STAGE = ROOT / "work/release/sol_v1_1_1/dataset"
-VERSION = "1.1.1"
+STAGE = ROOT / "work/release/sol_v1_2_0/dataset"
+VERSION = "1.2.0"
+REVISION_DATE = "2026-11-01"
 TITLE = "What About the Independents Then: Investigating Small Large Language Models in the UK"
 PUBLIC_FILES = [
     "accounts.csv", "models_all.csv", "collection.json", "collection_statistics.json",
@@ -23,9 +24,9 @@ PUBLIC_FILES = [
 ]
 PUBLIC_FILES += [f"raw/api_page_{i:03d}.json" for i in range(10)]
 PUBLIC_FILES += [f"raw/ui_page_{i:03d}.json" for i in range(31)]
-PAPER_FILES = ["main.tex", "abstract.tex", "methods.tex", "results.tex", "sovereignty.tex",
+PAPER_FILES = ["main.tex", "abstract.tex", "methods.tex", "results.tex", "sovereignty.tex", "provenance.tex",
                "generated_counts.tex", "summary_table.tex", "references.bib", "figures/obrien-crest.png"]
-CODE_FILES = [".gitignore", "README.md", "METHODS.md", "CITATION.cff", "dataset_card.md",
+CODE_FILES = [".gitignore", "README.md", "METHODS.md", "CHANGELOG.md", "CITATION.cff", "dataset_card.md",
               "LICENSE", "DATA_LICENSE.md", "requirements.txt", "config/filters.json"]
 SCRIPT_FILES = ["analyse.py", "collect.py", "enrich_github.py", "download_data.py",
                 "classify_builders.py", "classify_inventory.py", "build_revision.py",
@@ -48,7 +49,7 @@ def main():
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
     manifest = {"version": VERSION, "title": TITLE, "study_date": "2026-10-30",
-                "revision_date": "2026-10-31", "files": []}
+                "revision_date": REVISION_DATE, "files": []}
     for name in sorted(PUBLIC_FILES):
         p = stage / "data" / name
         manifest["files"].append({"path": name, "bytes": p.stat().st_size,
