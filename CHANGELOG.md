@@ -4,6 +4,7 @@
 
 - Revises the paper into my first-person voice and adds the authorised disability/accessibility and Sol 6.1 writing-aid disclosure.
 - Increases line and paragraph spacing and restores substantive reasoning from my dictated account: networking access, practical collaboration, learning and apprenticeship routes, model-assisted model development, reciprocal research partnerships, regional compute and technical control.
+- States the reasoning and practical requirements for talent discovery directly, retaining first person for my experience and aims rather than presenting the analytical argument as personal wishes.
 - Restores all 222 official education observations and a complete 24-row ethnicity/sex/FSM comparison, including Black African, Caribbean and mixed-background groups, detailed Asian and White groups, totals and unknowns. Original rates, denominators and HE entrant counts are retained.
 - Preserves the frozen 917-model / 495-account cohort and existing classifications: 457 from scratch, 352 derived, 36 mirrors, 60 untrained and 12 unresolved; 5 UK builders, 3 from-scratch builders and 1 strict independent.
 - Rebuilds the matching paper, full account appendix and source/data/Zenodo review packages. Private transcripts and working notes remain local; publication remains held for review.

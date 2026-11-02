@@ -290,6 +290,7 @@ Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model
 
 - Revises the paper into my first-person voice and adds the authorised disability/accessibility and Sol 6.1 writing-aid disclosure.
 - Increases line and paragraph spacing and restores substantive reasoning from my dictated account: networking access, practical collaboration, learning and apprenticeship routes, model-assisted model development, reciprocal research partnerships, regional compute and technical control.
+- States the reasoning and practical requirements for talent discovery directly, retaining first person for my experience and aims rather than presenting the analytical argument as personal wishes.
 - Restores all 222 official education observations and a complete 24-row ethnicity/sex/FSM comparison, including Black African, Caribbean and mixed-background groups, detailed Asian and White groups, totals and unknowns. Original rates, denominators and HE entrant counts are retained.
 - Preserves the frozen 917-model / 495-account cohort and existing classifications: {p['from_scratch']} from scratch, {p['derived']} derived, {p['mirror']} mirrors, {p['untrained']} untrained and {p['unresolved']} unresolved; {b['uk_built_people']} UK builders, {b['uk_from_scratch_people']} from-scratch builders and {b['strict_independent_people']} strict independent.
 - Rebuilds the matching paper, full account appendix and source/data/Zenodo review packages. Private transcripts and working notes remain local; publication remains held for review.
