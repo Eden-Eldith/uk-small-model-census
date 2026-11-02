@@ -8,6 +8,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{enumitem}
+\usepackage{placeins,needspace}
 \usepackage{url}
 \usepackage{xurl}
 \usepackage[style=numeric,sorting=none,backend=biber]{biblatex}
@@ -161,16 +162,20 @@ model. That voluntary public connection should make the work discoverable
 without requiring a newspaper profile or a publicity campaign. The
 technical record is already there to be found.
 
-This makes the population boundary important. The sector study already
+When discovery begins and ends with institutional networks, it becomes a
+closed loop: the organisations already recognised by the state identify
+people already connected to those organisations. The sector study already
 uses language models and agentic tools to discover firms
-\cite{sectorstudy}. Giving an agent a company-centred population will still
-leave an independent person outside that population. Asking universities
-to identify researchers will tend to reach people connected to those
-universities. To find builders outside those routes, the capability map
-therefore needs to search published technical work as well: Hugging Face
-for models, GitHub for implementations,
-and Zenodo for research outputs. These are ordinary places where independent
-builders make their work available.
+\cite{sectorstudy}. Giving an agent a company-centred population still leaves
+an independent person outside that population. Automating the search does
+not change whom it is designed to find.
+
+Breaking that loop requires following the work itself: Hugging Face for
+models, GitHub for implementations and Zenodo for research outputs. These
+are ordinary places where independent builders make their work available.
+The route into the capability map should begin with what someone has built,
+so that university affiliation, company formation and personal connections
+do not determine whether the search reaches them.
 
 Discovery spending should be judged by whether it reaches people beyond
 the networks already represented in the results. Reproducing a list of
@@ -192,29 +197,38 @@ discoverable before a researcher learns to market a company or builds a
 large social-media audience.
 
 \input{educational_access}
+\FloatBarrier
 
 \subsection{A practical route from learning to research}
-Developing domestic AI capability requires routes through which people can
-learn to construct models. A small Shakespeare model is a concrete
-introduction: initialise the weights, watch the training
-process, generate text, change the model and see what happens. School and
-after-school projects could use that experience to introduce Python,
-PyTorch and GPU computing. The objective is to let a learner see a model
-become something they can understand, change and train for themselves.
+The educational task is to turn passive consumers of AI into active
+producers. A learner who has trained a model can begin to understand the
+technology as something they can construct and change. A small Shakespeare
+model provides a concrete introduction: initialise the weights, watch the
+training process, generate text, change the model and see what happens.
+School and after-school projects could use that experience to introduce
+Python, PyTorch and GPU computing. Building a working text generator makes
+the connection between code, data, hardware and learned behaviour visible.
+That is a practical way to demystify AI.
 
 Some access routes already exist. Kaggle offers free, quota-limited GPU
 notebooks, and Google's AI subscriptions include premium Colab benefits
 \cite{kagglegpu,colab2026}. People need to know that these routes are
-available and how to use them for building models. Existing school and
-regional computing resources could support the same practical learning.
-The route should continue through apprenticeships covering hosting,
-inference, fine-tuning, distributed training and security, with credit and
-a share in the value of work learners help to create. Where a project
-produces a patentable invention, learners and their school should share in
-the returns under an agreed arrangement. A concrete stake in a working
-invention gives people a reason to keep learning and developing it. The
-national ambition should be widespread competence in building AI, extending
-beyond familiarity with using chatbots for everyday tasks.
+available and how to use them for building models. Schools should also
+identify suitable graphics PCs already available in art, design and
+computing departments and make them accessible to supervised research
+clubs outside teaching hours. Regional technical hubs could provide the
+support and additional compute needed as projects grow.
+
+That route should continue through machine-learning research
+apprenticeships covering hosting, inference, fine-tuning, distributed
+training and security. Learners need credit and a share in the value of
+work they help to create. Where a project produces a patentable invention,
+learners and their school should share in the returns under an agreed
+arrangement. Those returns could help sustain the next round of local
+projects, while a concrete stake in a working invention gives its builders
+a reason to keep developing it. The national ambition should be widespread
+competence in building AI, extending beyond familiarity with using chatbots
+for everyday tasks.
 
 Funding only today's best-established performers misses tomorrow's best.
 In a field where tools and methods change rapidly, a newcomer can develop
@@ -297,6 +311,32 @@ A national inventory should follow reproducible outputs across these venues
 instead of treating participation in one academic publication route as the
 boundary of research capability.
 
+\Needspace{32\baselineskip}
+\subsection{A national programme with clear responsibilities}
+These proposals connect discovery, development and retention. They require
+an explicit division of responsibility:
+\begin{itemize}[leftmargin=*,itemsep=5pt]
+\item \textbf{The Sovereign AI Fund:} find independent builders through
+their released models, code and research; provide a route to support before
+company formation; and assess existing domestic models for scaling with
+national compute. Hardware grants, compute access and research
+collaborations should connect demonstrated work to its next stage.
+\item \textbf{DSIT, Parliament and public bodies:} connect regional
+technical hubs and suitable data centres into a national development
+programme, fund active testing of British systems, and retain the people
+who hold sensitive technical knowledge through sustained research and
+employment. Discovery must lead to support that lasts long enough to build
+domestic capability.
+\item \textbf{Schools, colleges and training providers:} teach practical
+model-building, open suitable existing hardware to research clubs, and
+establish machine-learning apprenticeships. Agree how learners receive
+credit and share in the returns from inventions they help to create, so
+that successful projects can sustain further local work.
+\end{itemize}
+The result should be a continuous route from a first working model to
+research, collaboration and useful national capability. Each organisation
+has a part to play in making that route work.
+
 \section{Evidence coverage}
 The census covers the specified 917-model search on 30 October 2026.
 The completed follow-through leaves \UnresolvedGeographyAccounts{} account
@@ -356,7 +396,9 @@ independent researcher and use AI as an accessibility and writing aid.
 Sol 6.1 (ultra effort, OpenAI) helped me organise and express that account,
 analyse the saved evidence and prepare the manuscript. Astra (OpenAI) and
 Claude (Anthropic) also assisted with research and drafting under my
-direction. I retain authorship and make the interpretation and publication
+direction. NotebookLM (Google) produced an additional draft from my voice
+log; selected wording and organisation from it informed this revision.
+I retain authorship and make the interpretation and publication
 decisions. My use of AI in WiggleGPT's development and task adaptation is
 described in the paper. Private recordings, transcripts and working notes
 are not released.
