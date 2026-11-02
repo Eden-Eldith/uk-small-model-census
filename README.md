@@ -1,6 +1,6 @@
 # What About the Independents Then: Investigating Small Large Language Models in the UK
 
-Phillip Charles O'Brien (Eden Eldith) · 1 November 2026 · **Version 1.2.0**
+Phillip Charles O'Brien (Eden Eldith) · 2 November 2026 · **Version 1.2.1**
 
 The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss. Britain needs to discover, support and retain the people who already build domestic models; a company inventory leaves independent work outside its starting population.
 
@@ -40,6 +40,8 @@ UK-built refers to the builder's location during development and training; forei
 
 The dataset supplies the frozen `models_all.csv` and `accounts.csv`, compact `*_inventory_annotations.jsonl` and `builder_classification_inputs.json`, all-account/model inventories, 35 person classifications, 55 detailed model decisions, computed statistics, descriptive summaries, provenance comparisons, context sources and a file-hash manifest. Source links and relevant evidence are public; private recordings, instructions, access logs and working notes are excluded.
 
+The education context includes all 222 official DfE source observations and a complete 24-row ethnicity/sex/FSM comparison. The paper shows male and female rates for FSM and non-FSM pupils across Black African, Caribbean, mixed-background, Asian, White, other and unknown categories. Original pupil denominators and HE entrant counts are retained in the accompanying CSVs.
+
 With Python 3.10 or later, install `requirements.txt`, then download this revision's data using `python scripts/download_data.py --revision DATASET_COMMIT_SHA`. Use the dataset's commit history to select the immutable revision; the downloader will not overwrite different local files without `--overwrite`.
 
 ```sh
@@ -53,4 +55,4 @@ The original crest and author cover are retained. This correction advances the e
 
 [Method](METHODS.md) · [Paper source](paper/main.tex) · [ORCID](https://orcid.org/0009-0007-3961-1182)
 
-Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model metadata and official statistics retain their source rights. The author created WiggleGPT. Astra and Codex (OpenAI) and Claude (Anthropic) assisted under his direction.
+Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model metadata and official statistics retain their source rights. I created WiggleGPT and supplied this paper's research question, interpretation and substantive narrative. As a disabled independent researcher, I used Sol 6.1 (ultra effort, OpenAI) as an accessibility and writing aid, alongside research assistance from Astra (OpenAI) and Claude (Anthropic), under my direction.

@@ -1,6 +1,6 @@
 \section{Finding the builders through their models}
-The 30 October 2026 snapshot contains \textbf{917 model repositories from
-495 publishing accounts}. The saved query selected Text Generation,
+I used the 30 October 2026 snapshot of \textbf{917 model repositories from
+495 publishing accounts}. My saved query selected Text Generation,
 English, PyTorch, the displayed under-1B parameter range, Base only, and
 Recently Updated, with no name search. The ten API pages and 31 website
 pages agreed on membership. This saved cohort is the population analysed
@@ -9,18 +9,19 @@ throughout the paper.
 Hugging Face is the GitHub of open-source models: a public place where
 builders publish weights, model cards and links to their training code.
 It is an obvious starting point for discovering who already builds models.
-The PyTorch filter deliberately makes that search manageable and targets
-work comparable to the author's consumer-hardware development route.
-In the author's 31 October exploration,
-adding Transformers under the final combination reduced the visible result
-to 552 and hid WiggleGPT; removing that additional library constraint
-restored it. Removing PyTorch in a later configuration produced 7,022
+I chose the PyTorch filter to make the search manageable and target
+work comparable to my consumer-hardware development route.
+
+In my 31 October exploration, adding Transformers under the final
+combination reduced the visible result to 552 and hid WiggleGPT; removing
+that additional library constraint restored it. Removing PyTorch in a
+later configuration produced 7,022
 results. An existing model disappeared when an additional library filter
 was selected, then reappeared when it was removed. Discovery depends on
 where and how the search is conducted. The practical task is to inspect
 the released work and identify its builders.
 
-Classification begins with the downloaded CSV/JSONL records, model cards and
+I began classification with the downloaded CSV/JSONL records, model cards and
 profiles. Clear organisations, derivatives and overseas connections can be
 recorded immediately. Existing investigations are reused; targeted additional
 sources are needed only for unanswered fields that could change a relevant
@@ -30,12 +31,14 @@ untrained checkpoints. A catalogue's Base tag is not proof of original
 training. Saved checkpoint comparisons establish the GPT-2 and T5 derivative
 cases discussed below.
 
-The location follow-through covered all 151 previously unresolved accounts.
-It began with each frozen model's card and community discussion, then followed
-the creator's profile and linked GitHub, personal or social pages. The final
-117 accounts received a maximum of three minutes each, with three agents
-working on separate accounts; the earlier 34 completed investigations were
-retained. Broader creator activity was consulted when the model-specific
+I directed the location follow-through across all 151 previously unresolved
+accounts. The agents began with each frozen model's card and community
+discussion, then followed the creator's profile and linked GitHub, personal
+or social pages. I set a maximum of three minutes for each of the final
+117 accounts, with three agents working on separate accounts, and retained
+the earlier 34 completed investigations.
+
+Broader creator activity was consulted when the model-specific
 sources and profile links left the question unanswered. Country and regional
 estimates carry their basis and confidence. A final local-only reading of
 the saved model cards resolved straightforward provenance gaps across the
@@ -44,10 +47,10 @@ architecture, implementation and checkpoints, so a standard recipe trained
 from fresh weights can be distinguished from modifying another builder's
 weights.
 
-A final targeted discovery pass followed unanswered country and origin
-fields through exact creator-name and handle searches, relevant linked
-profiles, model files and community replies. The three-minute account limit and reuse of completed
-investigations continued through this pass.
+I then directed a final targeted discovery pass for unanswered country and
+origin fields, using exact creator-name and handle searches, relevant
+linked profiles, model files and community replies. I kept the three-minute
+account limit and reused completed investigations throughout this pass.
 
 \emph{UK-built} concerns the builder's location while developing and running
 the model. Overseas rented GPUs are recorded separately. Dated study or

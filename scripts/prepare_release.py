@@ -5,9 +5,9 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-STAGE = ROOT / "work/release/sol_v1_2_0/dataset"
-VERSION = "1.2.0"
-REVISION_DATE = "2026-11-01"
+STAGE = ROOT / "work/release/sol_v1_2_1/dataset"
+VERSION = "1.2.1"
+REVISION_DATE = "2026-11-02"
 TITLE = "What About the Independents Then: Investigating Small Large Language Models in the UK"
 PUBLIC_FILES = [
     "accounts.csv", "models_all.csv", "collection.json", "collection_statistics.json",
@@ -19,18 +19,20 @@ PUBLIC_FILES = [
     "model_decisions.jsonl", "builder_statistics.json", "builder_flow.csv",
     "provenance_comparisons.json", "context/uk_hardware_prices.csv",
     "context/england_imd2025_local_authorities.csv", "context/census_context.json",
-    "context/dfe_education_context.csv", "builder_descriptive_summary.csv",
+    "context/dfe_education_context.csv", "context/dfe_education_comparisons.csv",
+    "context/dfe_education_source.json", "builder_descriptive_summary.csv",
     "context/README.md",
 ]
 PUBLIC_FILES += [f"raw/api_page_{i:03d}.json" for i in range(10)]
 PUBLIC_FILES += [f"raw/ui_page_{i:03d}.json" for i in range(31)]
 PAPER_FILES = ["main.tex", "abstract.tex", "methods.tex", "results.tex", "sovereignty.tex", "provenance.tex",
+               "educational_access.tex", "education_comparisons.tex",
                "generated_counts.tex", "summary_table.tex", "references.bib", "figures/obrien-crest.png"]
 CODE_FILES = [".gitignore", "README.md", "METHODS.md", "CHANGELOG.md", "CITATION.cff", "dataset_card.md",
               "LICENSE", "DATA_LICENSE.md", "requirements.txt", "config/filters.json"]
 SCRIPT_FILES = ["analyse.py", "collect.py", "enrich_github.py", "download_data.py",
                 "classify_builders.py", "classify_inventory.py", "build_revision.py",
-                "build_appendix.py", "build_paper.ps1", "prepare_release.py", "package_review.py"]
+                "build_appendix.py", "build_education_context.py", "build_paper.ps1", "prepare_release.py", "package_review.py"]
 CODE_FILES += ["scripts/" + n for n in SCRIPT_FILES] + ["paper/" + n for n in PAPER_FILES]
 PDF_NAMES = ["What_About_the_Independents_Then_2026-10-31.pdf",
              "UK_Small_Model_Census_Appendix_2026-10-31.pdf"]

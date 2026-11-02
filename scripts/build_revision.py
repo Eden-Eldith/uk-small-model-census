@@ -9,9 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 TITLE = 'What About the Independents Then: Investigating Small Large Language Models in the UK'
 HF = 'https://huggingface.co/datasets/edeneldith/uk-small-model-census'
 GH = 'https://github.com/Eden-Eldith/uk-small-model-census'
-VERSION = '1.2.0'
-RELEASE_DATE = '2026-11-01'
-RELEASE_DATE_TEXT = '1 November 2026'
+VERSION = '1.2.1'
+RELEASE_DATE = '2026-11-02'
+RELEASE_DATE_TEXT = '2 November 2026'
 
 
 def readl(name):
@@ -123,15 +123,15 @@ Unresolved model provenance & -- & \UnresolvedProvenanceModels{} \\
     write('paper/summary_table.tex',table)
     write('paper/abstract.tex',r'''\begin{abstract}
 The United Kingdom is investing in sovereign AI, yet a map of AI firms
-is not necessarily a map of the people who can build it. This study follows
+is not necessarily a map of the people who can build it. I follow
 a fixed Hugging Face search for English-language, PyTorch text-generation
 base models below one billion parameters: \CensusModels{} repositories from
-\CensusAccounts{} publishing accounts on 30 October 2026. Saved model and
-profile evidence identifies \UKBuilders{} UK-based builders across
+\CensusAccounts{} publishing accounts on 30 October 2026. From saved model and
+profile evidence, I identify \UKBuilders{} UK-based builders across
 \UKBuiltModels{} model entries, including \ScratchBuilders{} builders of
 \ScratchModels{} from-scratch entries. \UKInstitutional{} of the \UKBuilders{} builders have
-university or institutional routes. \textbf{Phillip Charles O'Brien, creator
-of WiggleGPT, is the one strict-independent builder}, with no university
+university or institutional routes. \textbf{I am the one identified
+strict-independent builder, having developed WiggleGPT in Gosport}, with no university
 attendance or institutional affiliation. The complete account appendix
 retains all institutional, overseas, derivative, untrained and unresolved
 cases. Hugging Face, GitHub and Zenodo provide a practical route to discover
@@ -141,19 +141,18 @@ is part of developing sovereign AI.
 \end{abstract}
 ''')
     results=r'''\section{Results}
-\textbf{The strict-independent result is one person: Phillip Charles O'Brien
-(Eden Eldith), building WiggleGPT in Gosport.} The model was trained from
-scratch, using an RTX 3070 and subsequently an RTX 5060 Ti, one GPU at a
- time. Public project and autobiographical evidence supports self-funded
- development and no university attendance.
+\textbf{The strict-independent result is one person: me, building WiggleGPT
+in Gosport.} I trained the model from scratch, using an RTX 3070 and
+subsequently an RTX 5060 Ti, one GPU at a time. My public project record and
+autobiographical account document self-funded development and no university attendance.
 
 \input{summary_table}
 
-The UK development cases are O'Brien, Ahmad Bader (tiny-gpt), Augusto
+The UK development cases are me (WiggleGPT), Ahmad Bader (tiny-gpt), Augusto
 B. Corr\^ea (SmolLM fine-tune), Xinyu Bai (LongT5 fine-tune), and Pietro Lesci
 as a joint builder of the three PolyPythias seed releases. The
-from-scratch cases are O'Brien, Bader and Lesci. Bader and Lesci have
-university/industry routes; O'Brien satisfies the strict-independent
+from-scratch cases are Bader, Lesci and me. Bader and Lesci have
+university/industry routes; I satisfy the strict-independent
 definition. Corr\^ea and Bai's two UK-built releases are derivatives.
 Lesci is a joint first author of the PolyPythias training study
 \cite{polypythias}.
@@ -197,7 +196,7 @@ model-period inference, alongside applicable exclusion reasons.
 
 Compute also separates pathways. Bader documents 12 CPU threads on an
 Intel Core Ultra 9 185H laptop and 28,388 seconds of training; PolyPythias
-used sponsored Stability AI compute. Dated UK market listings put O'Brien's
+used sponsored Stability AI compute. Dated UK market listings put my
 two accelerator generations in the under-\pounds500 and \pounds500--1,999
 bands respectively. \InsideAICentreBuilders{} of the \UKBuilders{} builders are within the fixed
 AI-centre city list, \OutsideAICentreBuilders{} is outside it (Gosport), and
@@ -253,6 +252,8 @@ UK-built refers to the builder's location during development and training; forei
 
 The dataset supplies the frozen `models_all.csv` and `accounts.csv`, compact `*_inventory_annotations.jsonl` and `builder_classification_inputs.json`, all-account/model inventories, {len(people)} person classifications, {len(models)} detailed model decisions, computed statistics, descriptive summaries, provenance comparisons, context sources and a file-hash manifest. Source links and relevant evidence are public; private recordings, instructions, access logs and working notes are excluded.
 
+The education context includes all 222 official DfE source observations and a complete 24-row ethnicity/sex/FSM comparison. The paper shows male and female rates for FSM and non-FSM pupils across Black African, Caribbean, mixed-background, Asian, White, other and unknown categories. Original pupil denominators and HE entrant counts are retained in the accompanying CSVs.
+
 With Python 3.10 or later, install `requirements.txt`, then download this revision's data using `python scripts/download_data.py --revision DATASET_COMMIT_SHA`. Use the dataset's commit history to select the immutable revision; the downloader will not overwrite different local files without `--overwrite`.
 
 ```sh
@@ -266,7 +267,7 @@ The original crest and author cover are retained. This correction advances the e
 
 [Method](METHODS.md) · [Paper source](paper/main.tex) · [ORCID](https://orcid.org/0009-0007-3961-1182)
 
-Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model metadata and official statistics retain their source rights. The author created WiggleGPT. Astra and Codex (OpenAI) and Claude (Anthropic) assisted under his direction.
+Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model metadata and official statistics retain their source rights. I created WiggleGPT and supplied this paper's research question, interpretation and substantive narrative. As a disabled independent researcher, I used Sol 6.1 (ultra effort, OpenAI) as an accessibility and writing aid, alongside research assistance from Astra (OpenAI) and Claude (Anthropic), under my direction.
 '''
     write('README.md',readme)
     method_path = ROOT/'METHODS.md'
@@ -281,20 +282,23 @@ Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model
     unknown_primary = [r for r in people if r['analysis_scope']=='primary_uk_connection' and r['university_ever']=='unknown']
     unknown_institutional = sum(r['institutional_route']=='yes' for r in unknown_primary)
     method = re.sub(r'Both university-unknown primary people have established institutional careers\.|Of the \d+ university-unknown primary people, \d+ have established institutional careers\.', f'Of the {len(unknown_primary)} university-unknown primary people, {unknown_institutional} have established institutional careers.', method)
+    method = re.sub(r'The paper cites three DfE education-context rows.*?(?=## Reproduce and publish)',
+        'The paper includes all 24 recorded major and detailed DfE ethnicity groups, with Male/Female and FSM/non-FSM higher-education progression rates. The released context CSV retains all 222 original observations for England state-funded and special-school pupils aged 15 in 2020/21, followed to age 19 in 2024/25. A comparison CSV preserves each rate, pupil denominator and HE entrant count, including the recorded Unknown-sex observation. Major subtotals and detailed groups are labelled separately. FSM is the recorded eligibility indicator at age 15; non-FSM is All Other Pupils. Working-class disadvantage extends beyond FSM eligibility. These are official aggregate educational statistics; the census retains its separate university/institutional-route fields.\n\n',
+        method,count=1,flags=re.S)
     write('METHODS.md',method)
-    write('CHANGELOG.md',f'''# Census revision history
+    changelog_section=f'''## {VERSION} — {RELEASE_DATE_TEXT}
 
-## {VERSION} — {RELEASE_DATE_TEXT}
+- Revises the paper into my first-person voice and adds the authorised disability/accessibility and Sol 6.1 writing-aid disclosure.
+- Increases line and paragraph spacing and restores substantive reasoning from my dictated account: networking access, practical collaboration, learning and apprenticeship routes, model-assisted model development, reciprocal research partnerships, regional compute and technical control.
+- Restores all 222 official education observations and a complete 24-row ethnicity/sex/FSM comparison, including Black African, Caribbean and mixed-background groups, detailed Asian and White groups, totals and unknowns. Original rates, denominators and HE entrant counts are retained.
+- Preserves the frozen 917-model / 495-account cohort and existing classifications: {p['from_scratch']} from scratch, {p['derived']} derived, {p['mirror']} mirrors, {p['untrained']} untrained and {p['unresolved']} unresolved; {b['uk_built_people']} UK builders, {b['uk_from_scratch_people']} from-scratch builders and {b['strict_independent_people']} strict independent.
+- Rebuilds the matching paper, full account appendix and source/data/Zenodo review packages. Private transcripts and working notes remain local; publication remains held for review.
 
-- Retains the frozen 917-model / 495-account population and the original author cover and crest.
-- Uses the author's title, independent-builder research question and sovereignty argument; removes the superseded name-based demographic analysis from the active paper and release.
-- Classifies {p['from_scratch']} from-scratch releases, {p['derived']} derivatives, {p['mirror']} mirrors and {p['untrained']} untrained checkpoints; {p['unresolved']} model origins remain unanswered. The previous published revision had 385 unanswered origins.
-- Identifies {b['uk_built_people']} UK-based builders across {b['uk_built_model_entries']} frozen entries, including {b['uk_from_scratch_people']} from-scratch builders. The strict-independent result is {b['strict_independent_people']}: Phillip Charles O'Brien / WiggleGPT.
-- Completes the 151-account follow-through and targeted missing-source discovery. Current geography includes {len(country_estimates)} country assessments in that group, {g.get('region_or_timezone_clue',0)} region/timezone clues and {g.get('unresolved',0)} unresolved accounts.
-- Rebuilds the full 495-account appendix, generated counts, reproducible evidence inputs, source/data archives and author-managed Zenodo deposit package together. Private transcripts, working notes and source-access logs remain local.
-
-Earlier revisions remain available in the normal GitHub and Hugging Face commit histories.
-''')
+'''
+    previous=(ROOT/'CHANGELOG.md').read_text(encoding='utf-8')
+    previous=re.sub(r'^# Census revision history\s*','',previous)
+    previous=re.sub(r'^## '+re.escape(VERSION)+r' — .*?(?=^## |\Z)','',previous,flags=re.S|re.M)
+    write('CHANGELOG.md','# Census revision history\n\n'+changelog_section+previous.lstrip())
     write('dataset_card.md','''---
 license: cc-by-4.0
 language:

@@ -26,7 +26,7 @@ The saved 30 October hardware bands are retained: under GBP 500; GBP 500–1,999
 
 The fixed city list is Cambridge, Oxford, Greater London, Southampton, Bristol, Edinburgh, Leeds and Manchester, from the cited official UK Technology 2024 brochure. Area deprivation uses the most-deprived fifth of local authorities in the relevant nation's index, by rank of average score. Only supported build-time localities are used; Gosport's borough result is not a neighbourhood claim. UK primary/secondary schooling is distinct from university. Multiple-response descriptive counts retain explicit denominators and unknown categories.
 
-The paper cites three DfE education-context rows for England's state-school 2020/21 age-15 cohort, followed to age 19 in 2024/25. No name-character, name-origin or inferred-demographic analysis is included. Earlier local demographic materials are historical working material and are excluded from this release.
+The paper includes all 24 recorded major and detailed DfE ethnicity groups, with Male/Female and FSM/non-FSM higher-education progression rates. The released context CSV retains all 222 original observations for England state-funded and special-school pupils aged 15 in 2020/21, followed to age 19 in 2024/25. A comparison CSV preserves each rate, pupil denominator and HE entrant count, including the recorded Unknown-sex observation. Major subtotals and detailed groups are labelled separately. FSM is the recorded eligibility indicator at age 15; non-FSM is All Other Pupils. Working-class disadvantage extends beyond FSM eligibility. These are official aggregate educational statistics; the census retains its separate university/institutional-route fields.
 
 ## Reproduce and publish
 

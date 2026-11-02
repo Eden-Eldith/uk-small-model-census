@@ -25,7 +25,7 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TITLE = 'What About the Independents Then: Investigating Small Large Language Models in the UK'
-REVISION_DATE = '1 November 2026'
+REVISION_DATE = '2 November 2026'
 TEAL = colors.HexColor('#12616A')
 INK = colors.HexColor('#1B2935')
 LIGHT = colors.HexColor('#EAF1F3')
