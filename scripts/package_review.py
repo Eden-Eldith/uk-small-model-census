@@ -39,7 +39,7 @@ def main():
         "related_identifiers": [{"identifier": "https://github.com/Eden-Eldith/uk-small-model-census", "relation": "isSupplementedBy", "scheme": "url"}, {"identifier": "https://huggingface.co/datasets/edeneldith/uk-small-model-census", "relation": "isSupplementedBy", "scheme": "url"}],
         "notes": "Prepared for author-managed Zenodo deposit. Packaging does not upload to Zenodo or assign a DOI. Matching PDFs, source and data are included. Private logs and working notes are excluded."
     }
-    metadata["description"] += "<p>The paper connects capability discovery to recursive self-improvement: existing AI helps people develop further models, widens participation and makes timely support consequential for subsequent domestic development. It addresses commercial value, reciprocal public investment, and operational sovereignty through procurement, maintenance and security capability.</p>"
+    metadata["description"] += "<p>The strategic argument connects capability discovery to the race through RSI, AGI and ASI, the risk of dependent vassal-state status, and the need for a national model-building programme. The 2026 Hugging Face security incident provides a concrete example of operational dependence during an emergency. The paper addresses the National Security Strategy's baseline ambition, active defence, retained expertise, regional and distributed compute, and practical routes into model-building.</p>"
     meta = target / "zenodo_metadata.json"
     meta.write_text(json.dumps(metadata, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     readme = target / "README.txt"

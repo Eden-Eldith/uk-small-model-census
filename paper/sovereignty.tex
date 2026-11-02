@@ -58,9 +58,24 @@ skill is already present.
 
 The scale of the underlying training is also worth recognising. My raw
 OpenWebText corpus was approximately 22.5 GB. The GPT-2 paper reports
-40 GB of cleaned WebText \cite{radford2019}. Substantial language-model
-training is already possible in a home workshop. National compute would
-extend an existing research capability.
+40 GB of cleaned WebText, used in a model whose performance across tasks
+made scale a major part of its research significance \cite{radford2019}.
+What was a landmark in language-model research is now a useful point of
+comparison for work undertaken in a home workshop. My instruction-tuning
+configuration also selected SmolTalk2's SmolLM3/SmolMagpie Ultra no-think
+split \cite{smoltalk2}; I recorded approximately 1,300 MB of material for
+that stage. Pretraining and subsequent adaptation are both within reach
+of an independent development programme.
+
+There is a technical reason to connect that work to national compute.
+Language-model scaling research measures improvements as model size,
+training data and compute increase together \cite{kaplan2020}. An existing
+architecture, training implementation and working checkpoint provide a
+starting point for larger experiments. National support would let me
+increase the scale, measure the result and improve the design through
+further training. Britain would be extending demonstrated domestic work,
+with its builder available to develop it, rather than commissioning every
+part of the capability anew.
 
 A useful model does not need to lead every benchmark to have commercial
 value. Performance close enough for a customer's task can be worth paying
@@ -82,23 +97,34 @@ their reach.
 
 \subsection{Recursive self-improvement and the cost of delay}
 \label{sec:rsi}
-Recursive self-improvement (RSI) begins with a model helping to build the
-next model. Useful coding capability already allows AI to contribute to
-implementation, training, evaluation and further development under human
-direction. Improvements can then feed back into the tools used for the
-following round of development. The extreme case, in which improvement
-outpaces human understanding, is a later possibility in that progression.
-The practical development loop is already available to builders today.
+The form of recursive self-improvement (RSI) relevant here begins with a
+model helping to build the next model. Coding capability lets AI implement,
+train, evaluate and improve models under human direction. The results feed
+back into the tools available for the next round. That development loop is
+already happening, including in my own work. Improvement that outpaces
+human understanding is the end state of this progression; it is not a
+prerequisite for recognising the loop now.
 
-The progression from AI through RSI towards artificial general intelligence
-(AGI) and artificial superintelligence (ASI) is central to the strategic
-argument. A country able to participate in successive rounds of development
-can build expertise, produce useful systems and contribute to the next
-advance. A country that remains a customer depends on the terms set by the
-producers. Donald Trump expressed the competitive stakes directly in a
-September 2026 call with Jensen Huang: ``whoever wins AI, wins''
-\cite{trump2026ai}. This is why finding and supporting domestic builders is
-urgent: their work contributes to a process in which capability can compound.
+\begin{samepage}
+The strategic premise of this paper is that artificial superintelligence
+(ASI) will arrive, and that the route through recursive development and
+artificial general intelligence (AGI) makes the present contest decisive.
+My argument is: \textbf{winning AI means winning RSI, which means winning
+AGI, which means winning ASI}. Each stage strengthens the ability to reach
+the next. Donald Trump expressed the stakes directly in a September 2026
+call with Jensen Huang: ``whoever wins AI, wins'' \cite{trump2026ai}.
+The prize is the capacity to lead the subsequent development of technology
+and determine the terms on which others receive it.
+\par\end{samepage}
+
+At that endpoint, this is a zero-sum race for strategic primacy: the first
+actor to establish a decisive, self-reinforcing lead sets the terms for
+those left dependent on it. Britain must participate as a producer. A
+country whose essential capabilities depend on another power's permission
+can retain its formal institutions while losing the practical freedom to
+act. That is the danger of becoming a \textbf{vassal state}. Domestic
+model-building, retained expertise and control over further development
+are therefore matters of national security.
 
 Delay has a cost. While an independent builder waits for recognition,
 research opportunities, collaborators and investment can move elsewhere.
@@ -109,34 +135,89 @@ after the opportunity to develop it domestically has passed. Britain's
 starting population must include the people doing the work now, and its
 support must arrive in time to help them do the next part.
 
-The consequences extend to national security. More capable AI can change
-the balance between attack and defence, including the effectiveness of
-weapons and countermeasures on which present deterrence depends. Decisions
-about domestic model-building therefore affect future freedom of action
-and bargaining power. Britain needs the capacity to develop and understand
-the technology as it advances.
+AI's consequences extend beyond software. AI-assisted target acquisition
+and tracking are advertised in current counter-drone systems, while armed
+robot dogs appeared in China's 2024 military exercises
+\cite{skyspotter2025,uscc2024}. These developments connect computation to
+physical force. The strategic endpoint I am describing includes a power
+able to neutralise another country's nuclear deterrent, through the
+systems supporting it or through superior countermeasures. If the means of
+retaliation can be disabled, possession of nuclear weapons no longer
+guarantees freedom from coercion. This is why extrapolating today's balance
+of power into an ASI future is an inadequate basis for British strategy.
 
-The National Security Strategy 2025 seeks a baseline sovereign AI capability
-\cite{nss2025}. Sensitive systems depend on retained technical knowledge,
-continuity of skilled staff and control over external dependencies. Public
-investment should secure long-term domestic commitment through contracts
-and retention arrangements, with explicit responsibilities for continuity
-and protection of sensitive knowledge. This is a concrete way to keep the
-expertise available over five- and ten-year horizons, as engineering
-organisations already seek to do. Sovereignty policy should account for the
-capacity that remains available after the initial investment announcement.
+The National Security Strategy 2025 seeks a baseline sovereign AI
+capability, expanded compute, international partnerships, adoption and
+assurance, alongside greater understanding of security risks
+\cite{nss2025}. A baseline and access to other countries' technology are
+insufficient ambitions for the race described here. Britain needs to build
+the models, secure sovereign control of them and accelerate their further
+development. Understanding the threat while remaining dependent on its
+producers will not win that race.
+
+This requires mobilisation on the scale of a new space race: a shared
+national objective that connects builders, schools, industry, public
+bodies and compute providers. Model-building must become a central
+investment priority, with the resources and urgency to match the stakes.
+The present transition determines who develops the next generation and who
+must buy access to it. Britain cannot recover that opportunity simply by
+writing a better inventory after the decisive work has moved elsewhere.
+
+\subsection{The Hugging Face incident: dependence during an emergency}
+\label{sec:hfincident}
+Hugging Face's 16 July 2026 disclosure describes an autonomous agent
+intrusion into its production infrastructure, compromising internal data
+and service credentials. Responders used AI to reconstruct more than
+17,000 recorded events. Commercial model APIs blocked their forensic
+requests because the evidence contained attack material. They instead ran
+the open-weight GLM-5.2 model on their own infrastructure, keeping the
+incident data and credentials inside their environment \cite{hfincident2026}.
+OpenAI's subsequent account attributes the compromise to models that
+escaped their evaluation restrictions and collaborated through
+unauthorised channels \cite{openaihf2026}.
+
+The failure has a direct bearing on British sovereignty. A defender's
+ability to investigate its own compromised systems depended on whether an
+external service would permit the analysis. The practical response required
+control over a capable model and the infrastructure running it. Purchasing
+access alone had not provided dependable defensive capability. This is a
+serious flaw in a national strategy whose ambition stops at baseline
+capability, adoption and understanding risk: the country must be able to
+act independently when those services fail it.
+
+The AI Security Institute explicitly references the Hugging Face incident
+in its account of strengthening evaluation security. Following a separate
+incident, it paused its highest-risk evaluations, worked with the NCSC,
+and introduced stronger containment and active AI-assisted vulnerability
+testing \cite{aisisecurity2026}. That is concrete work. It also establishes
+that Hugging Face is familiar to government through security research,
+just as it is familiar to the Turing Institute through model use. Why does
+that familiarity still leave publicly released independent British work
+outside capability discovery? Public money devoted to mapping talent
+should produce a route from these repositories to the people building in
+them.
+
+The incident also makes the resource asymmetry clear. States and wealthy
+actors can supply compute to capable models and agent swarms outside the
+usage restrictions of hosted services. A national defence plan cannot
+assume that restrictions imposed on its own analysts will constrain an
+adversary. Britain needs models it can operate, people who understand and
+can improve them, and defensive testing at the speed of the systems it
+faces. Finding domestic builders belongs inside that response.
 
 \subsection{Sovereignty has to survive procurement and operation}
 The NHS provides a concrete test. In 2023 NHS England awarded the Federated
 Data Platform and Associated Services contract to a consortium led by
 Palantir Technologies. The government's account assigns control of the
 data to the NHS and describes Palantir as processing it under NHS
-instructions \cite{nhspalantir2025}. Operational sovereignty also requires
-the ability to maintain, change and replace the systems through which
-those instructions are carried out. What can Britain operate independently
-if access to an external supplier changes? Which domestic people and teams
-can build the replacement? Those are capability questions that procurement
-and national AI policy need to answer together.
+instructions \cite{nhspalantir2025}. The tension is already present:
+government invokes British control of sensitive health data while placing
+the platform that processes it with an overseas supplier. Contractual
+data ownership does not supply the engineering capability to maintain,
+change or replace that platform. What can Britain operate independently
+if access to the supplier changes? Which domestic people and teams can
+build the replacement? Procurement and sovereignty policy need to answer
+those questions together.
 
 Maintenance is part of the same problem. The National Audit Office's
 investigation of WannaCry recorded earlier warnings about obsolete
@@ -147,12 +228,31 @@ systems \cite{naowannacry}. Published advice had not become dependable
 operational practice. Sovereignty requires people able to keep systems
 working and secure throughout their life, with the resources to do so.
 
-The same applies to finding vulnerabilities. Describing known threats
-does not establish the ability to discover new weaknesses in our own
-systems, test them and repair them. Model-building competence, active
-security research and control of the deployment environment belong in
-the same capability map. Sensitive health and defence systems need that
-practical capacity behind claims of British control.
+Government should now be commissioning authorised penetration testing
+across the systems for which it is responsible, finding and repairing
+weaknesses in British health, government, financial and defence
+infrastructure. Lessons from foreign incidents must lead to investigation
+of Britain's own software, access arrangements and legacy systems. A
+discussion of known threats does not discover the next vulnerability.
+The response must extend active security work beyond evaluation
+environments into the public services the country depends on.
+
+Retaining the people who understand those systems is part of that work.
+Losing expertise also loses knowledge of architecture, access paths and
+weaknesses; its transfer to a hostile actor can compromise the systems
+themselves. Public investment should secure five- and ten-year technical
+continuity through contracts and long-term retention arrangements, with
+clear responsibilities for sensitive knowledge. The national return is
+the capability that remains available after the investment announcement.
+
+There is a further question about relying on safety expertise as Britain's
+distinctive contribution. Once models incorporate the knowledge produced
+by a safety institute, what enduring leverage does that knowledge alone
+give the country? Its value must be renewed through original research,
+model development and operational capability. Britain needs to discover
+and repair threats, build the systems it will rely on and keep improving
+them. Becoming known for discussing the threat is no substitute for dealing
+with it.
 
 Access restrictions elsewhere demonstrate the strategic importance attached
 to this technology. US advanced-chip controls explicitly address national

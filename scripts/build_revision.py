@@ -137,11 +137,14 @@ retains all institutional, overseas, derivative, untrained and unresolved
 cases. Hugging Face, GitHub and Zenodo provide a practical route to discover
 independent domestic capability that company-centred inventories leave
 outside their populations. Finding, supporting and retaining those builders
-is part of developing sovereign AI. Existing models also help people
-develop further models: the practical recursive self-improvement loop
-widens participation and changes the population that a capability map
-must discover. Delayed recognition therefore affects future development
-as well as the visibility of existing work.
+is part of developing sovereign AI. I connect this discovery failure to
+the race through recursive self-improvement (RSI), artificial general
+intelligence and artificial superintelligence: who builds successive
+generations determines who controls the resulting capability. The 2026
+Hugging Face security incident demonstrates why access to hosted models
+can fail during an emergency. Britain needs domestic capacity to build,
+improve and operate models, alongside the ability to find and support the
+people doing that work.
 \end{abstract}
 ''')
     results=r'''\section{Results}
@@ -220,7 +223,7 @@ Phillip Charles O'Brien (Eden Eldith) · {RELEASE_DATE_TEXT} · **Version {VERSI
 
 The frozen 30 October cohort contains **{i['frozen_models']} model repositories and {i['frozen_accounts']} publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss. Britain needs to discover, support and retain the people who already build domestic models; a company inventory leaves independent work outside its starting population.
 
-The paper connects discovery to recursive self-improvement: existing AI helps people develop further models, broadens who can participate, and makes timely support consequential for subsequent domestic capability. It develops the commercial case for useful small models, reciprocal public investment, and operational sovereignty through the NHS procurement and software-maintenance examples.
+The paper argues that the race through recursive self-improvement (RSI), AGI and ASI makes domestic model-building urgent: Britain must become a producer or risk becoming a vassal state dependent on other powers. It examines the 2026 Hugging Face intrusion and the responders' blocked access to hosted-model analysis as a concrete failure of operational independence. It connects that evidence to the limits of the National Security Strategy's baseline ambition, active defence, talent retention and a national model-building programme. Practical proposals include regional compute, distributed training, learning routes and apprenticeships with a stake in inventions.
 
 [Read the paper]({HF}/resolve/main/paper/What_About_the_Independents_Then_2026-10-31.pdf) · [Full {i['frozen_accounts']}-account appendix]({HF}/resolve/main/paper/UK_Small_Model_Census_Appendix_2026-10-31.pdf) · [Dataset]({HF}) · [Zenodo deposit package]({HF}/resolve/main/release/UK_Small_Model_Census_Zenodo_Package.zip)
 
@@ -297,8 +300,10 @@ Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model
 - Revises the paper into my first-person voice and adds the authorised disability/accessibility and Sol 6.1 writing-aid disclosure.
 - Increases line and paragraph spacing and restores substantive reasoning from my dictated account: networking access, practical collaboration, learning and apprenticeship routes, model-assisted model development, reciprocal research partnerships, regional compute and technical control.
 - States the reasoning and practical requirements for talent discovery directly, retaining first person for my experience and aims rather than presenting the analytical argument as personal wishes.
-- Restores the explicit RSI definition and AI/RSI/AGI/ASI progression, connects the development loop to a changing population of builders, and states the strategic and opportunity costs of delay.
-- Restores the useful-model commercial argument, raw-corpus comparison, reciprocal contribution from public support, and concrete NHS/Palantir, maintenance and vulnerability-discovery examples. Adds the dated Trump quotation and primary sources for the named public examples, and updates the arXiv access description.
+- Restores the strategic thesis in full: winning AI, RSI, AGI and ASI; the zero-sum race for primacy; the risk of Britain becoming a vassal state; and the case for urgent national mobilisation.
+- Adds the Hugging Face incident with Hugging Face, OpenAI and AISI references, connects operational dependence to the critique of baseline sovereign capability, and restores the concrete defence, active-testing, retention and safety-knowledge arguments.
+- Restores the useful-model commercial argument, corpus and instruction-tuning examples, scaling rationale, reciprocal contribution, NHS/Palantir procurement contradiction and maintenance examples. Adds sources for military robotics, counter-drone systems and Gosport's mapped data centre.
+- Restores exact-name versus capability search, voluntary public discoverability, discovery-budget and selection accountability, learner/school patent returns, practical hardware skills, Astra's task-training role and distributed training as a national programme.
 - Restores all 222 official education observations and a complete 24-row ethnicity/sex/FSM comparison, including Black African, Caribbean and mixed-background groups, detailed Asian and White groups, totals and unknowns. Original rates, denominators and HE entrant counts are retained.
 - Preserves the frozen 917-model / 495-account cohort and existing classifications: {p['from_scratch']} from scratch, {p['derived']} derived, {p['mirror']} mirrors, {p['untrained']} untrained and {p['unresolved']} unresolved; {b['uk_built_people']} UK builders, {b['uk_from_scratch_people']} from-scratch builders and {b['strict_independent_people']} strict independent.
 - Rebuilds the matching paper, full account appendix and source/data/Zenodo review packages. Private transcripts and working notes remain local; publication remains held for review.

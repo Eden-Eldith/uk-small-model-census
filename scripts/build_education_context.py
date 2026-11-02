@@ -50,12 +50,12 @@ def main():
         comparison.append(row)
     with (ROOT/'data/context/dfe_education_comparisons.csv').open('w',encoding='utf-8',newline='') as f:
         writer=csv.DictWriter(f,fieldnames=list(comparison[0]));writer.writeheader();writer.writerows(comparison)
-    lines=[r'\begingroup\small\setlength{\tabcolsep}{4pt}',r'\renewcommand{\arraystretch}{1.16}',
-           r'\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth}rrrrrr@{}}',
-           r'\caption{Higher-education progression by age 19 in 2024/25 (\%). England state-funded and special-school pupils aged 15 in 2020/21; every recorded major and detailed ethnicity group. Source: DfE~\cite{dfe2026}.}\label{tab:dfe}\\']
+    lines=[r'\begin{table}[htbp]',r'\begingroup\small\setlength{\tabcolsep}{4pt}',r'\renewcommand{\arraystretch}{1.16}',
+           r'\caption{Higher-education progression by age 19 in 2024/25 (\%). England state-funded and special-school pupils aged 15 in 2020/21; every recorded major and detailed ethnicity group. Source: DfE~\cite{dfe2026}.}\label{tab:dfe}',
+           r'\medskip',r'\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth}rrrrrr@{}}']
     header=[r'\toprule & \multicolumn{2}{c}{FSM eligible} & \multicolumn{2}{c}{Non-FSM} & \multicolumn{2}{c}{All sexes}\\',
             r'Recorded ethnicity & Male & Female & Male & Female & FSM & All\\\midrule']
-    lines += header+[r'\endfirsthead']+header+[r'\endhead',r'\bottomrule\endfoot']
+    lines += header
     for row in comparison:
         label=row['display_label'].replace('&',r'\&')
         cells=[f"{float(row[p+'_participation_rate']):.1f}" for p in
@@ -65,9 +65,9 @@ def main():
             cells=[r'\textbf{'+c+'}' for c in [label]+cells]
         else:cells=[(r'\hspace*{0.7em}' if row['hierarchy_level'] else '')+label]+cells
         lines.append(' & '.join(cells)+r'\\')
-    lines += [r'\end{longtable}',
+    lines += [r'\bottomrule\end{tabular}',r'\par\medskip',
         r'\noindent\footnotesize Bold rows are major-group or national totals; indented rows are their detailed categories. Totals and components overlap. White British abbreviates English / Welsh / Scottish / Northern Irish / British. Non-FSM is the source category All Other Pupils. FSM eligibility and sex are recorded at age 15. One pupil with unknown recorded sex is included in the all-sex totals. The released CSVs retain all 222 source rows, original category labels, HE entrant counts and pupil denominators for every displayed percentage.',
-        r'\par\endgroup']
+        r'\par\endgroup',r'\end{table}']
     (ROOT/'paper/education_comparisons.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     print(f'Education context: {len(rows)} source rows; {len(comparison)} complete comparison rows')
 
