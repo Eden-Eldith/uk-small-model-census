@@ -4,6 +4,8 @@ Phillip Charles O'Brien (Eden Eldith) · 2 November 2026 · **Version 1.2.1**
 
 The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss. Britain needs to discover, support and retain the people who already build domestic models; a company inventory leaves independent work outside its starting population.
 
+The paper connects discovery to recursive self-improvement: existing AI helps people develop further models, broadens who can participate, and makes timely support consequential for subsequent domestic capability. It develops the commercial case for useful small models, reciprocal public investment, and operational sovereignty through the NHS procurement and software-maintenance examples.
+
 [Read the paper](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/What_About_the_Independents_Then_2026-10-31.pdf) · [Full 495-account appendix](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/UK_Small_Model_Census_Appendix_2026-10-31.pdf) · [Dataset](https://huggingface.co/datasets/edeneldith/uk-small-model-census) · [Zenodo deposit package](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/release/UK_Small_Model_Census_Zenodo_Package.zip)
 
 ## Actual results

@@ -4,7 +4,10 @@ investments typically between \pounds1 million and \pounds10 million, alongside
 compute, research, procurement and talent support for companies
 \cite{sovereignfaq}. Its visa scheme reimburses eligible costs when supported
 UK companies recruit international specialists into UK research roles
-\cite{sovereignoffer}. That support exists for recruiting from abroad.
+\cite{sovereignoffer}. Its investment criteria also allow companies to
+commit to establishing a substantial, lasting UK presence, rather than
+requiring all recipients to be headquartered here already
+\cite{sovereignfaq}. That support exists for attracting capability from abroad.
 What parallel mechanism actively identifies comparable
 technical talent already working independently in Britain, before company
 formation? Recruitment and domestic discovery are complementary national
@@ -53,12 +56,65 @@ middle-school data, while GPT-1 used both middle and high school. These
 results demonstrate substantial task learning. The underlying model-building
 skill is already present.
 
-Useful task capability, deployment cost and control over the model provide
-practical reasons to investigate the work. A small
-domestically developed model can be evaluated for a particular purpose and
-developed further from that base. A capability-discovery programme should
-find the existing work and assess what additional resources could make
-possible.
+The scale of the underlying training is also worth recognising. My raw
+OpenWebText corpus was approximately 22.5 GB. The GPT-2 paper reports
+40 GB of cleaned WebText \cite{radford2019}. Substantial language-model
+training is already possible in a home workshop. National compute would
+extend an existing research capability.
+
+A useful model does not need to lead every benchmark to have commercial
+value. Performance close enough for a customer's task can be worth paying
+for, especially when the model is cheaper to train and host. Small models
+therefore deserve assessment on the tasks they perform, their operating
+costs and the control they give their users. Funding decisions that assume
+useful model development must begin at the scale of a frontier laboratory
+miss this route to practical value.
+
+An early example that informed my thinking was a DeepSeek report I
+recorded in February 2025: roughly US\$400 of API use to obtain outputs for
+fine-tuning a model. The cost
+component in that example is access to generated training material. Access
+to existing models, data and methods can make a further stage of development
+affordable to people with much smaller budgets. This is a concrete reason
+for international partnerships to share technical resources with domestic
+builders: the exchange can enable work that would otherwise be beyond
+their reach.
+
+\subsection{Recursive self-improvement and the cost of delay}
+\label{sec:rsi}
+Recursive self-improvement (RSI) begins with a model helping to build the
+next model. Useful coding capability already allows AI to contribute to
+implementation, training, evaluation and further development under human
+direction. Improvements can then feed back into the tools used for the
+following round of development. The extreme case, in which improvement
+outpaces human understanding, is a later possibility in that progression.
+The practical development loop is already available to builders today.
+
+The progression from AI through RSI towards artificial general intelligence
+(AGI) and artificial superintelligence (ASI) is central to the strategic
+argument. A country able to participate in successive rounds of development
+can build expertise, produce useful systems and contribute to the next
+advance. A country that remains a customer depends on the terms set by the
+producers. Donald Trump expressed the competitive stakes directly in a
+September 2026 call with Jensen Huang: ``whoever wins AI, wins''
+\cite{trump2026ai}. This is why finding and supporting domestic builders is
+urgent: their work contributes to a process in which capability can compound.
+
+Delay has a cost. While an independent builder waits for recognition,
+research opportunities, collaborators and investment can move elsewhere.
+The next development then takes place around the people and infrastructure
+that received support. Waiting until builders acquire conventional
+credentials or form a company can mean discovering their capability only
+after the opportunity to develop it domestically has passed. Britain's
+starting population must include the people doing the work now, and its
+support must arrive in time to help them do the next part.
+
+The consequences extend to national security. More capable AI can change
+the balance between attack and defence, including the effectiveness of
+weapons and countermeasures on which present deterrence depends. Decisions
+about domestic model-building therefore affect future freedom of action
+and bargaining power. Britain needs the capacity to develop and understand
+the technology as it advances.
 
 The National Security Strategy 2025 seeks a baseline sovereign AI capability
 \cite{nss2025}. Sensitive systems depend on retained technical knowledge,
@@ -70,14 +126,33 @@ expertise available over five- and ten-year horizons, as engineering
 organisations already seek to do. Sovereignty policy should account for the
 capacity that remains available after the initial investment announcement.
 
-Operational sovereignty requires control over actual systems and procurement.
-Who controls the models and sensitive data? Which external providers remain
-necessary? Who maintains the underlying software, and who can investigate
-and repair a newly discovered vulnerability? Understanding a published
-threat is only one part of the technical capacity required. We also need
-the ability to discover how our own systems are vulnerable and to address
-those weaknesses. Model-building competence, security competence and
-control of the deployment environment belong in the same capability map.
+\subsection{Sovereignty has to survive procurement and operation}
+The NHS provides a concrete test. In 2023 NHS England awarded the Federated
+Data Platform and Associated Services contract to a consortium led by
+Palantir Technologies. The government's account assigns control of the
+data to the NHS and describes Palantir as processing it under NHS
+instructions \cite{nhspalantir2025}. Operational sovereignty also requires
+the ability to maintain, change and replace the systems through which
+those instructions are carried out. What can Britain operate independently
+if access to an external supplier changes? Which domestic people and teams
+can build the replacement? Those are capability questions that procurement
+and national AI policy need to answer together.
+
+Maintenance is part of the same problem. The National Audit Office's
+investigation of WannaCry recorded earlier warnings about obsolete
+software, critical patch alerts in March and April 2017, and no formal
+mechanism before the attack for checking whether local NHS organisations
+had acted. Infected organisations had unpatched or unsupported Windows
+systems \cite{naowannacry}. Published advice had not become dependable
+operational practice. Sovereignty requires people able to keep systems
+working and secure throughout their life, with the resources to do so.
+
+The same applies to finding vulnerabilities. Describing known threats
+does not establish the ability to discover new weaknesses in our own
+systems, test them and repair them. Model-building competence, active
+security research and control of the deployment environment belong in
+the same capability map. Sensitive health and defence systems need that
+practical capacity behind claims of British control.
 
 Access restrictions elsewhere demonstrate the strategic importance attached
 to this technology. US advanced-chip controls explicitly address national
