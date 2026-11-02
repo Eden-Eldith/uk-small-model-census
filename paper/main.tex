@@ -24,13 +24,22 @@
 \clubpenalty=10000
 \widowpenalty=10000
 \setlist{nosep}
-\hypersetup{pdftitle={What About the Independents Then: Investigating Small Large Language Models in the UK},pdfauthor={Phillip Charles O'Brien}}
+\hypersetup{
+pdftitle={What About the Independents Then: Investigating Small Large Language Models in the UK},
+pdfauthor={Phillip Charles O'Brien},
+pdfsubject={UK independent model builders, capability discovery and sovereign AI},
+pdfkeywords={independent research, UK AI capability, small language models, model discovery, sovereign AI},
+pdflang={en-GB},pdfdisplaydoctitle=true,pdfpagemode=UseOutlines,
+bookmarksopen=true,bookmarksopenlevel=1,bookmarksnumbered=true,linktoc=all}
+\setcounter{tocdepth}{2}
 \input{generated_counts}
 
 \begin{document}
 % Match the crest-first cover used in the author's COLM and WiggleGPT papers.
 \hypersetup{pageanchor=false}
 \begin{titlepage}
+\thispdfpagelabel{Cover}
+\pdfbookmark[0]{Cover}{cover}
 \setlength{\parskip}{0pt}
 \centering
 \vspace*{1cm}
@@ -49,12 +58,28 @@
 {\small ORCID: \href{https://orcid.org/0009-0007-3961-1182}{0009-0007-3961-1182}\par}
 
 \vfill
-{\small 2 November 2026 $\cdot$ Version 1.2.1\par}
+{\small \CensusRevisionDate{} $\cdot$ Version \CensusVersion{}\par}
 \vspace{1cm}
 \end{titlepage}
 \hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\pdfbookmark[0]{Contents}{contents}
+\begingroup
+\setlength{\parskip}{0pt}
+\tableofcontents
+\endgroup
+
+\bigskip
+\noindent\textbf{Tables and companion appendix}\par
+\noindent\hyperref[tab:counts]{Table 1: Census results}\dotfill\pageref{tab:counts}\par
+\noindent\hyperref[tab:dfe]{Table 2: Education, sex and free-school-meal comparisons}\dotfill\pageref{tab:dfe}\par
+\noindent\href{UK_Small_Model_Census_Appendix_2026-10-31.pdf}{Complete 495-account appendix (separate PDF)}\par
+{\small Keep the companion PDF beside this paper to use the appendix link. Its bookmarks provide an alphabetical index of every account.\par}
+\clearpage
 \pagenumbering{arabic}
 
+\phantomsection
+\addcontentsline{toc}{section}{Abstract}
 \input{abstract}
 \textbf{Keywords:} independent research; UK AI capability; small language models; model discovery; sovereign AI.
 
@@ -316,11 +341,12 @@ resources and retaining their expertise. \textbf{If Britain wants to know what s
 \end{samepage}
 
 \section*{Availability, authorship and AI assistance}
+\addcontentsline{toc}{section}{Availability, authorship and AI assistance}
 Code, paper and companion appendix:
 \url{https://github.com/Eden-Eldith/uk-small-model-census}.
 Frozen metadata, source-linked classifications and reproducible counts:
 \url{https://huggingface.co/datasets/edeneldith/uk-small-model-census}.
-Version 1.2.1 includes the corrected manuscript and matching Zenodo package
+Version \CensusVersion{} includes the corrected manuscript and matching Zenodo package
 for author deposit.
 
 This is my research and my argument. I supplied the research question,
@@ -334,5 +360,5 @@ direction. I retain authorship and make the interpretation and publication
 decisions. My use of AI in WiggleGPT's development and task adaptation is
 described in the paper. Private recordings, transcripts and working notes
 are not released.
-\printbibliography
+\printbibliography[heading=bibintoc]
 \end{document}

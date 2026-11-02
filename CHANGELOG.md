@@ -10,6 +10,7 @@
 - Restores the useful-model commercial argument, corpus and instruction-tuning examples, scaling rationale, reciprocal contribution, NHS/Palantir procurement contradiction and maintenance examples. Adds sources for military robotics, counter-drone systems and Gosport's mapped data centre.
 - Restores exact-name versus capability search, voluntary public discoverability, discovery-budget and selection accountability, learner/school patent returns, practical hardware skills, Astra's task-training role and distributed training as a national programme.
 - Restores all 222 official education observations and a complete 24-row ethnicity/sex/FSM comparison, including Black African, Caribbean and mixed-background groups, detailed Asian and White groups, totals and unknowns. Original rates, denominators and HE entrant counts are retained.
+- Adds a clickable contents page, complete PDF bookmarks, table and companion-appendix shortcuts, distinct cover/front-matter page labels, and document subject, keywords and language metadata. Version/date labels use the generated release values.
 - Preserves the frozen 917-model / 495-account cohort and existing classifications: 457 from scratch, 352 derived, 36 mirrors, 60 untrained and 12 unresolved; 5 UK builders, 3 from-scratch builders and 1 strict independent.
 - Rebuilds the matching paper, full account appendix and source/data/Zenodo review packages. Private transcripts and working notes remain local; publication remains held for review.
 
