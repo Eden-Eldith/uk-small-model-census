@@ -2,6 +2,7 @@
 
 ## 1.2.1 — 3 November 2026
 
+- Finalises the author-approved preprint and removes pending-review labels. Prepares the paper, unchanged full appendix, matching source/data archives and copy-ready deposit details for the author's Zenodo upload. Synchronises the existing repositories; the author retains control of the Zenodo deposit.
 - Integrates Rupert Lowe's 24 October and 2 November posts into the sovereignty and cyber-defence arguments, identifying the shared urgency expressed by the leader of Restore Britain and connecting his call for British technical expertise to independent-builder discovery. Expands the existing October citation and adds the November post and the party's leadership source; synchronises the review PDF, repository descriptions and packages.
 - Revises the paper into my first-person voice and adds the authorised disability/accessibility and Sol 6.1 writing-aid disclosure.
 - Increases line and paragraph spacing and restores substantive reasoning from my dictated account: networking access, practical collaboration, learning and apprenticeship routes, model-assisted model development, reciprocal research partnerships, regional compute and technical control.
@@ -21,7 +22,7 @@
 - Adds Anthropic Institute's account of AI-assisted AI development and the progression toward autonomous successor development to the recursive self-improvement argument.
 - Describes AI as agentic systems and AI agents throughout the current manuscript, including the development loop, capability discovery, procurement and accessibility disclosure. Makes the agentic-era framing explicit.
 - Restores the power, cooling, heat, grid, solar, regional and offshore infrastructure argument, with concrete deployment and capital-market examples. Adds the named commercial discovery databases, model-building outcomes for skills programmes, university licensing precedent, fertility data and the record of missed migration commitments.
-- Synchronises the review manuscript, full account appendix and source/data/Zenodo packages as ongoing repository work. Private transcripts and working notes remain local; formal release and Zenodo deposit remain held for author approval.
+- Synchronises the completed manuscript, full account appendix and source/data/Zenodo packages. Private transcripts and working notes remain local; Zenodo deposit is author-managed.
 
 ## 1.2.0 — 1 November 2026
 
