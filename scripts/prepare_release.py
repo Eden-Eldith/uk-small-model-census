@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 STAGE = ROOT / "work/release/sol_v1_2_1/dataset"
 VERSION = "1.2.1"
-REVISION_DATE = "2026-11-02"
+REVISION_DATE = "2026-11-03"
 TITLE = "What About the Independents Then: Investigating Small Large Language Models in the UK"
 PUBLIC_FILES = [
     "accounts.csv", "models_all.csv", "collection.json", "collection_statistics.json",

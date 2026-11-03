@@ -10,8 +10,8 @@ TITLE = 'What About the Independents Then: Investigating Small Large Language Mo
 HF = 'https://huggingface.co/datasets/edeneldith/uk-small-model-census'
 GH = 'https://github.com/Eden-Eldith/uk-small-model-census'
 VERSION = '1.2.1'
-RELEASE_DATE = '2026-11-02'
-RELEASE_DATE_TEXT = '2 November 2026'
+RELEASE_DATE = '2026-11-03'
+RELEASE_DATE_TEXT = '3 November 2026'
 
 
 def readl(name):
@@ -221,6 +221,8 @@ full descriptive counts, evidence and sources.
 
 Phillip Charles O'Brien (Eden Eldith) · {RELEASE_DATE_TEXT} · **Version {VERSION}**
 
+**Review draft.** These repositories record work in progress for author review. The paper, appendix and package are synchronised here; formal release and Zenodo deposit await the author's approval.
+
 The frozen 30 October cohort contains **{i['frozen_models']} model repositories and {i['frozen_accounts']} publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss. Britain needs to discover, support and retain the people who already build domestic models; a company inventory leaves independent work outside its starting population.
 
 The paper argues that the race through recursive self-improvement (RSI), AGI and ASI makes domestic model-building urgent: Britain must become a producer or risk becoming a vassal state dependent on other powers. It examines the 2026 Hugging Face intrusion and the responders' blocked access to hosted-model analysis as a concrete failure of operational independence. It connects that evidence to the limits of the National Security Strategy's baseline ambition, active defence, talent retention and a national model-building programme. Practical proposals include regional compute, distributed training, learning routes and apprenticeships with a stake in inventions.
@@ -308,7 +310,9 @@ Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model
 - Adds a clickable contents page, complete PDF bookmarks, table and companion-appendix shortcuts, distinct cover/front-matter page labels, and document subject, keywords and language metadata. Version/date labels use the generated release values.
 - Incorporates selected wording and organisation from the author's NotebookLM voice-log draft: sovereignty as statecraft, closed institutional discovery loops, the foreign-model/domestic-builder discovery paradox, practical education from consumption to production, and a concise programme with named institutional responsibilities. Discloses NotebookLM's drafting contribution; retains the frozen cohort, established results and source-linked factual account.
 - Preserves the frozen 917-model / 495-account cohort and existing classifications: {p['from_scratch']} from scratch, {p['derived']} derived, {p['mirror']} mirrors, {p['untrained']} untrained and {p['unresolved']} unresolved; {b['uk_built_people']} UK builders, {b['uk_from_scratch_people']} from-scratch builders and {b['strict_independent_people']} strict independent.
-- Rebuilds the matching paper, full account appendix and source/data/Zenodo review packages. Private transcripts and working notes remain local; publication remains held for review.
+- Restores the sourced population-change and class-access argument, including Boriswave, the 2063 projection, political history and the case for developing talent among people already here. The builder dataset still has no inferred ethnicity classifications.
+- Adds the Sovereign AI Fund FOI evidence, NHS legacy-system prevalence and the distinction between free reading and paid bulk corpus access.
+- Synchronises the review manuscript, full account appendix and source/data/Zenodo packages as ongoing repository work. Private transcripts and working notes remain local; formal release and Zenodo deposit remain held for author approval.
 
 '''
     previous=(ROOT/'CHANGELOG.md').read_text(encoding='utf-8')

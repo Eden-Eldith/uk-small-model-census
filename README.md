@@ -1,6 +1,8 @@
 # What About the Independents Then: Investigating Small Large Language Models in the UK
 
-Phillip Charles O'Brien (Eden Eldith) · 2 November 2026 · **Version 1.2.1**
+Phillip Charles O'Brien (Eden Eldith) · 3 November 2026 · **Version 1.2.1**
+
+**Review draft.** These repositories record work in progress for author review. The paper, appendix and package are synchronised here; formal release and Zenodo deposit await the author's approval.
 
 The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss. Britain needs to discover, support and retain the people who already build domestic models; a company inventory leaves independent work outside its starting population.
 

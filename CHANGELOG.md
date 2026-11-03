@@ -1,6 +1,6 @@
 # Census revision history
 
-## 1.2.1 — 2 November 2026
+## 1.2.1 — 3 November 2026
 
 - Revises the paper into my first-person voice and adds the authorised disability/accessibility and Sol 6.1 writing-aid disclosure.
 - Increases line and paragraph spacing and restores substantive reasoning from my dictated account: networking access, practical collaboration, learning and apprenticeship routes, model-assisted model development, reciprocal research partnerships, regional compute and technical control.
@@ -13,7 +13,9 @@
 - Adds a clickable contents page, complete PDF bookmarks, table and companion-appendix shortcuts, distinct cover/front-matter page labels, and document subject, keywords and language metadata. Version/date labels use the generated release values.
 - Incorporates selected wording and organisation from the author's NotebookLM voice-log draft: sovereignty as statecraft, closed institutional discovery loops, the foreign-model/domestic-builder discovery paradox, practical education from consumption to production, and a concise programme with named institutional responsibilities. Discloses NotebookLM's drafting contribution; retains the frozen cohort, established results and source-linked factual account.
 - Preserves the frozen 917-model / 495-account cohort and existing classifications: 457 from scratch, 352 derived, 36 mirrors, 60 untrained and 12 unresolved; 5 UK builders, 3 from-scratch builders and 1 strict independent.
-- Rebuilds the matching paper, full account appendix and source/data/Zenodo review packages. Private transcripts and working notes remain local; publication remains held for review.
+- Restores the sourced population-change and class-access argument, including Boriswave, the 2063 projection, political history and the case for developing talent among people already here. The builder dataset still has no inferred ethnicity classifications.
+- Adds the Sovereign AI Fund FOI evidence, NHS legacy-system prevalence and the distinction between free reading and paid bulk corpus access.
+- Synchronises the review manuscript, full account appendix and source/data/Zenodo packages as ongoing repository work. Private transcripts and working notes remain local; formal release and Zenodo deposit remain held for author approval.
 
 ## 1.2.0 — 1 November 2026
 
