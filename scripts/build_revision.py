@@ -314,6 +314,7 @@ Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model
 - Adds the Sovereign AI Fund FOI evidence, NHS legacy-system prevalence and the distinction between free reading and paid bulk corpus access.
 - Adds the author's repository-metadata correction as a concrete search limitation: English and other task/library filters may hide additional UK builders. Records a possible Base/under-1B-only follow-up while preserving the frozen cohort and all reported counts.
 - Integrates the voice-log source register: AlphaEvolve's model-development improvements, the UN General Assembly superintelligence statement, US strategic objectives, deterrence research, NHS and defence operational control, government AI procurement and technical continuity.
+- Adds Anthropic Institute's account of AI-assisted AI development and the progression toward autonomous successor development to the recursive self-improvement argument.
 - Restores the power, cooling, heat, grid, solar, regional and offshore infrastructure argument, with concrete deployment and capital-market examples. Adds the named commercial discovery databases, model-building outcomes for skills programmes, university licensing precedent, fertility data and the record of missed migration commitments.
 - Synchronises the review manuscript, full account appendix and source/data/Zenodo packages as ongoing repository work. Private transcripts and working notes remain local; formal release and Zenodo deposit remain held for author approval.
 
