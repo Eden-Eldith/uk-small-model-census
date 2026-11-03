@@ -41,6 +41,7 @@ def main():
     }
     metadata["description"] += "<p>The strategic argument connects capability discovery to the race through RSI, AGI and ASI, the risk of dependent vassal-state status, and the need for a national model-building programme. The 2026 Hugging Face security incident provides a concrete example of operational dependence during an emergency. The paper addresses the National Security Strategy's baseline ambition, active defence, retained expertise, regional and distributed compute, and practical routes into model-building.</p>"
     meta = target / "zenodo_metadata.json"
+    metadata["description"] += "<p>The review integrates the voice-log source register into its argument, including AI-assisted model development, strategic competition and deterrence, operational control of public systems, and the power, cooling, grid and regional infrastructure needed to develop domestic builders. It connects skills and licensing precedents to practical routes into research.</p>"
     meta.write_text(json.dumps(metadata, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     readme = target / "README.txt"
     revision = date.fromisoformat(REVISION_DATE)

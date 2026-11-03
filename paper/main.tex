@@ -172,6 +172,17 @@ uses language models and agentic tools to discover firms
 an independent person outside that population. Automating the search does
 not change whom it is designed to find.
 
+The earlier 2023 sector study names the machinery behind this approach:
+Glass.ai, Bureau van Dijk, Beauhurst, Lightcast, UKRI's Gateway to Research
+and FT FDI Markets. It combines web research with company records, including
+Companies House, FAME and Beauhurst data on financial performance, funding
+and business development \cite{sectorstudy2023}. These sources make firms
+legible to government. A home researcher with a published checkpoint can
+still be absent from the resulting business population. The missing step
+is to search the technical record for builders before asking whether they
+have a company record. Buying more commercial information does not supply
+that step automatically.
+
 Breaking that loop requires following the work itself: Hugging Face for
 models, GitHub for implementations and Zenodo for research outputs. These
 are ordinary places where independent builders make their work available.
@@ -235,6 +246,14 @@ is overlooked need to be checked against the people and opportunities
 present today. Institutional membership is a particularly poor shortcut
 when access to those institutions is itself unequal.
 
+The gap between migration promises and outcomes also predates this debate.
+In March 2015, Home Secretary Theresa May repeatedly acknowledged in the
+Commons that the government had missed its net-migration target
+\cite{hansardmigration2015}. People are entitled to compare national
+commitments with what is actually delivered. AI policy needs the same
+discipline: evidence of capability developed and retained, with a clear
+account of who benefits from public support.
+
 The political history is part of why people outside those networks question
 their judgements. The Fabian Society records both its longstanding
 connection to Labour prime ministers and its early members' involvement
@@ -249,7 +268,10 @@ participate in shaping its decisions.
 I reject responding to demographic change by treating the people already
 here as a problem to send away. They are part of the population whose
 skills Britain needs to develop. Declining fertility and the conditions
-in which people can build families also require attention. The constructive
+in which people can build families also require attention. ONS recorded
+a total fertility rate of 1.41 children per woman in England and Wales in
+2024, the lowest recorded rate for the third consecutive year
+\cite{onsfertility2024}. The constructive
 response is to invest in people, enable them to contribute and secure a
 lasting return for the country that supported them. Anyone capable of
 building AI should have a route to support; anyone who wants to learn
@@ -274,6 +296,18 @@ Python, PyTorch and GPU computing. Building a working text generator makes
 the connection between code, data, hardware and learned behaviour visible.
 That is a practical way to demystify AI.
 
+Public ambition should carry that route through to model construction.
+The government's AI Skills Boost programme aims to equip ten million
+workers with AI skills by 2030. Its January 2026 explainer reports more
+than a million course completions, ranging from introductory literacy to
+advanced data science and machine-learning engineering, with uptake and
+productivity central to its aims \cite{aiskillsboost2026}. A national
+model-building programme needs visible outcomes within that effort:
+learners who can initialise, train, evaluate and release a model, and a
+route into sustained research for those who discover an aptitude for it.
+Course completions and demonstrated capacity to produce AI should both
+be measurable achievements.
+
 Some access routes already exist. Kaggle offers free, quota-limited GPU
 notebooks, and Google's AI subscriptions include premium Colab benefits
 \cite{kagglegpu,colab2026}. People need to know that these routes are
@@ -286,7 +320,12 @@ support and additional compute needed as projects grow.
 That route should continue through machine-learning research
 apprenticeships covering hosting, inference, fine-tuning, distributed
 training and security. Learners need credit and a share in the value of
-work they help to create. Where a project produces a patentable invention,
+work they help to create. Universities already have mechanisms for this:
+Oxford University Innovation describes licensing that retains university
+ownership and research rights while sharing royalty income with inventors
+and reinvesting it in research \cite{oxfordlicensing}. The principle can
+extend to learners and the local institutions supporting their work.
+Where a project produces a patentable invention,
 learners and their school should share in the returns under an agreed
 arrangement. Those returns could help sustain the next round of local
 projects, while a concrete stake in a working invention gives its builders
@@ -360,6 +399,26 @@ and model builders to this effort. Electricity, cooling and long-term
 infrastructure planning determine where it can be sustained. The purpose
 is a national model-building programme in which capability outside the
 familiar university and technology centres can contribute.
+
+\subsection{Power, cooling and regional infrastructure}
+Discovering builders must connect to the practical means of building. A national programme must develop people, compute and the infrastructure supporting both. Electricity and cooling belong in that programme as engineering problems to solve. Treating them as reasons Britain cannot build leaves the practical decisions to countries that are already making them.
+
+Cooling designs matter. techUK's survey covered 73 English data-centre facilities; 51\% used waterless cooling. Microsoft's next-generation design circulates cooling water between chips and chillers without evaporating it, using an initial fill rather than a continuous cooling-water supply. Its account also describes the energy trade-off: replacing evaporation with mechanical cooling increases electricity demand, while warmer chip-level cooling temperatures help limit that increase. A closed server-side loop can also reject heat through an evaporative cooling tower. The useful question is how the whole cooling system works. \cite{infraTechukWater,infraMicrosoftCooling,infraDOECooling}
+
+Evaporation moves water into the atmosphere, where it can condense and return as precipitation. It does not destroy water. The engineering questions concern where water is withdrawn and returned, local availability, and where the heat goes. Corrosion, scale and biological growth are also established cooling-system management problems, with treatment and filtration methods already available. Those methods belong in the operating plan. Heat deserves explicit attention: Marinoni and colleagues' satellite study reports an average increase of about 2\,$^{\circ}$C in surrounding \emph{land-surface temperature} after AI data centres began operating. That is a concrete reason to include heat rejection and local thermal conditions in site design. \cite{infraUSGSWater,infraDOECooling,infraDataHeat}
+
+Electricity generation and electricity delivery need equally clear treatment. DESNZ records 12 TWh of UK electricity exports in the year to September 2025, allowing surplus renewable generation to be used elsewhere. Internal transmission constraints are a separate problem: NESO says renewable generation has grown faster than transmission capacity, producing costly curtailment and redispatch. A country can export electricity while particular lines and substations lack capacity for new demand. At Uxbridge Moor, National Grid is building a new substation because its existing Iver-area substation cannot accommodate new connections, including data centres. The response is to plan generation, transmission and new demand together, then invest in the required connections. \cite{infraInterconnection,infraNESOConstraints,infraUxbridge}
+
+Other countries are already combining power development with compute development. xAI's own July 2026 update describes temporary gas turbines powering its Southaven facility and a permanent 1.2 GW power plant under construction. China's National Energy Administration publishes the Datang Zhongwei example: a 500 MW solar station commissioned in May 2026, with dedicated lines physically supplying a nearby computing park and complementary wind supply arrangements. These are concrete choices about how to power computing infrastructure. Britain needs to develop its own supply options and suitable locations with the same practical urgency. \cite{infraXAITurbines,infraDatangDirect}
+
+This reaches down to independent work. WiggleGPT was partly trained using my home solar panels and battery. Its model card gives a working scenario of roughly 42--58\% solar contribution and estimates 3.47--5.22 kg CO$_2$e for GPU electricity during pretraining, compared with 8.33--8.95 kg on the grid-only calculation. The solar share is a scenario based on the site's supply arrangements. Publishing its basis makes the contribution visible and gives other builders something concrete to improve upon. \cite{wigglecard}
+
+I propose regional AI hubs planned around power, connectivity, housing, training and access to compute. Give independent builders a route into them alongside apprentices, schools and universities. Stop assuming that everyone and everything must be concentrated in London. Government's AI Growth Zones already promise improved access to power and planning support, with announced sites in Oxfordshire, Wales, the North East and Scotland. Those investments should develop a wider population of model builders and connect existing local capability to the new infrastructure. \cite{infraAIGrowthZones}
+
+I also propose exploring purpose-built coastal and offshore sites, including engineered land where that provides a useful combination of energy and space. Belgium's Princess Elisabeth Island demonstrates that an artificial island can be built as an offshore electricity hub connecting wind generation to the onshore grid. My proposal is to bring that breadth of infrastructure thinking into Britain's AI programme: compare suitable sites, connect energy and compute planning, and use Parliament's powers to resolve planning obstacles and deliver the chosen projects. \cite{infraEnergyIsland}
+
+\subsection{The timetable matters}
+ Tesla already integrates Grok into its vehicles, while road-driving software follows a separate approval process. The Dutch regulator granted FSD Supervised approval on 10 April 2026 after more than eighteen months of examination and testing, initially for the Netherlands; this was approval for driver assistance under driver responsibility. The example shows how deployment depends on jurisdiction-specific decisions as well as working software. \cite{infraTeslaGrok,infraRDWFSD} Capital also follows opportunity: Wise completed its primary Nasdaq listing in May 2026, retaining a secondary London listing, and explicitly cited US market opportunities and access to deeper capital markets. \cite{infraWiseListing} Britain needs clear, timely routes from demonstrated capability to compute, finance and deployment. Talent and investment have alternatives. Discover the builders, make participation possible, and give them reasons to build here.
 
 \subsection{Publication and participation}
 Publication access is another part of discoverability. arXiv requires
