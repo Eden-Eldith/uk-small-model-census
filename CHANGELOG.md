@@ -2,6 +2,7 @@
 
 ## 1.2.1 — 3 November 2026
 
+- Integrates Rupert Lowe's 24 October and 2 November posts into the sovereignty and cyber-defence arguments, identifying the shared urgency expressed by the leader of Restore Britain and connecting his call for British technical expertise to independent-builder discovery. Expands the existing October citation and adds the November post and the party's leadership source; synchronises the review PDF, repository descriptions and packages.
 - Revises the paper into my first-person voice and adds the authorised disability/accessibility and Sol 6.1 writing-aid disclosure.
 - Increases line and paragraph spacing and restores substantive reasoning from my dictated account: networking access, practical collaboration, learning and apprenticeship routes, model-assisted model development, reciprocal research partnerships, regional compute and technical control.
 - States the reasoning and practical requirements for talent discovery directly, retaining first person for my experience and aims rather than presenting the analytical argument as personal wishes.
