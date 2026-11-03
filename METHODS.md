@@ -2,6 +2,10 @@
 
 The frozen 30 October 2026 query returned 917repositories from 495accounts. Text Generation, English, PyTorch, the displayed under-1B range, Base only and Recently Updated were selected with no name query. The original website/API sets agree and every original identifier remains. We do not replace the cohort with a live search.
 
+## Metadata and search visibility
+
+WiggleGPT did not appear in search results until I corrected its Hugging Face repository metadata. Missing or inaccurate language, task or library metadata can similarly hide other relevant models. Requiring English can also exclude UK-built models intended for other languages. A follow-up retaining only Base and the under-1B parameter range could identify additional builders by dropping these restrictions. This is a proposed extension; the reported counts continue to use the frozen 917-model / 495-account cohort.
+
 ## Classify saved evidence first
 
 Existing metadata, model cards, profiles, dated biographies and the saved follow-through batches supply the classification inputs. Organisational publishers and explicitly derived or untrained models are categorised directly. Existing findings settle answered fields; additional research follows the remaining questions.

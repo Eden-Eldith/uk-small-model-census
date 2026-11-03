@@ -312,6 +312,7 @@ Original code: MIT. Original annotations and paper: CC BY 4.0. Third-party model
 - Preserves the frozen 917-model / 495-account cohort and existing classifications: {p['from_scratch']} from scratch, {p['derived']} derived, {p['mirror']} mirrors, {p['untrained']} untrained and {p['unresolved']} unresolved; {b['uk_built_people']} UK builders, {b['uk_from_scratch_people']} from-scratch builders and {b['strict_independent_people']} strict independent.
 - Restores the sourced population-change and class-access argument, including Boriswave, the 2063 projection, political history and the case for developing talent among people already here. The builder dataset still has no inferred ethnicity classifications.
 - Adds the Sovereign AI Fund FOI evidence, NHS legacy-system prevalence and the distinction between free reading and paid bulk corpus access.
+- Adds the author's repository-metadata correction as a concrete search limitation: English and other task/library filters may hide additional UK builders. Records a possible Base/under-1B-only follow-up while preserving the frozen cohort and all reported counts.
 - Synchronises the review manuscript, full account appendix and source/data/Zenodo packages as ongoing repository work. Private transcripts and working notes remain local; formal release and Zenodo deposit remain held for author approval.
 
 '''
