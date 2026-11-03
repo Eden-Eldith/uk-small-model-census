@@ -25,7 +25,9 @@ configs:
 
 Phillip Charles O'Brien (Eden Eldith) · 3 November 2026 · **Version 1.2.1**
 
-**Completed preprint.** The paper, appendix, source and data packages are synchronised here. The matching Zenodo deposit package is ready for author-managed upload.
+**Published preprint.** Version 1.2.1 was published on Zenodo on 3 November 2026, with the paper, companion appendix, source and data archives.
+
+**All versions:** [10.5281/zenodo.23923241](https://doi.org/10.5281/zenodo.23923241) · **This version (1.2.1):** [10.5281/zenodo.23923242](https://doi.org/10.5281/zenodo.23923242)
 
 The frozen 30 October cohort contains **917 model repositories and 495 publishing accounts**. Hugging Face is the GitHub of open-source models. The study follows released work to UK builders outside university and institutional routes, and shows what company-centred sovereign-AI inventories miss. Britain needs to discover, support and retain the people who already build domestic models; a company inventory leaves independent work outside its starting population.
 
@@ -33,7 +35,13 @@ The paper argues that the race through recursive self-improvement (RSI), AGI and
 
 The sovereignty discussion also connects Rupert Lowe's calls for [sovereign AI on 24 October](https://x.com/RupertLowe10/status/2113876438617063857) and [cyber defence and British technical expertise on 2 November](https://x.com/RupertLowe10/status/2117258349569880131) to the paper's argument. As leader of Restore Britain, he expresses the same urgency about national capability; the census asks how Britain will discover and support the independent builders who could help deliver it.
 
-[Read the paper](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/What_About_the_Independents_Then_2026-10-31.pdf) · [Full 495-account appendix](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/UK_Small_Model_Census_Appendix_2026-10-31.pdf) · [Dataset](https://huggingface.co/datasets/edeneldith/uk-small-model-census) · [Zenodo deposit package](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/release/UK_Small_Model_Census_Zenodo_Package.zip)
+[Read the paper](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/What_About_the_Independents_Then_2026-10-31.pdf) · [Full 495-account appendix](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/paper/UK_Small_Model_Census_Appendix_2026-10-31.pdf) · [Dataset](https://huggingface.co/datasets/edeneldith/uk-small-model-census) · [Published Zenodo record](https://zenodo.org/records/23923242) · [Original deposit package](https://huggingface.co/datasets/edeneldith/uk-small-model-census/resolve/main/release/UK_Small_Model_Census_Zenodo_Package.zip)
+
+## Citation
+
+O'Brien, P. C. (2026). *What About the Independents Then: Investigating Small Large Language Models in the UK* (Version 1.2.1) [Preprint]. Zenodo. https://doi.org/10.5281/zenodo.23923242
+
+Use the version DOI above to cite this release, and record the Hugging Face commit used for data analysis. The all-versions DOI represents the work across releases and resolves to the latest version.
 
 ## Actual results
 
@@ -80,7 +88,7 @@ python scripts/build_appendix.py
 
 These commands reproduce categories, counts, generated paper tables and appendix from released evidence, without fresh web searches. On Windows with MiKTeX and Biber, `./scripts/build_paper.ps1` builds the main paper. `python scripts/package_review.py` stages the allowlisted public data and builds matching source, data and Zenodo packages. Packaging never publishes automatically.
 
-The original crest and author cover are retained. This correction advances the existing repositories through normal history; v1.0 remains in that history. The Zenodo ZIP is prepared for the author's deposit; no new DOI or deposit is claimed.
+The original crest and author cover are retained, and earlier versions remain in repository history. The PDFs and source/data ZIPs match the files published on Zenodo. The original deposit package retains its preparation-time guide and metadata; the repository pages and citation file now record the published DOIs. The deposited source snapshot is [GitHub commit 0de665f](https://github.com/Eden-Eldith/uk-small-model-census/tree/0de665f0fe0c51afce5b55a07b933f70848397e5); use that snapshot to reproduce the deposited source bundle.
 
 [Method](https://github.com/Eden-Eldith/uk-small-model-census/blob/main/METHODS.md) · [Paper source](https://github.com/Eden-Eldith/uk-small-model-census/blob/main/paper/main.tex) · [ORCID](https://orcid.org/0009-0007-3961-1182)
 

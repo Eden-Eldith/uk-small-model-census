@@ -2,6 +2,7 @@
 
 ## 1.2.1 — 3 November 2026
 
+- Published by the author on Zenodo: version DOI [10.5281/zenodo.23923242](https://doi.org/10.5281/zenodo.23923242), all-versions DOI [10.5281/zenodo.23923241](https://doi.org/10.5281/zenodo.23923241). Adds both identifiers and the version citation to GitHub and Hugging Face. The deposited PDFs, source archive and data archive remain unchanged.
 - Finalises the author-approved preprint and removes pending-review labels. Prepares the paper, unchanged full appendix, matching source/data archives and copy-ready deposit details for the author's Zenodo upload. Synchronises the existing repositories; the author retains control of the Zenodo deposit.
 - Integrates Rupert Lowe's 24 October and 2 November posts into the sovereignty and cyber-defence arguments, identifying the shared urgency expressed by the leader of Restore Britain and connecting his call for British technical expertise to independent-builder discovery. Expands the existing October citation and adds the November post and the party's leadership source; synchronises the review PDF, repository descriptions and packages.
 - Revises the paper into my first-person voice and adds the authorised disability/accessibility and Sol 6.1 writing-aid disclosure.

@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite this dated census and the dataset commit you used."
+message: "Please cite version 1.2.1 using its Zenodo DOI and record the dataset commit you used."
 title: "What About the Independents Then: Investigating Small Large Language Models in the UK"
 type: dataset
 authors:
@@ -8,6 +8,11 @@ authors:
     orcid: "https://orcid.org/0009-0007-3961-1182"
 version: 1.2.1
 date-released: 2026-11-03
+doi: "10.5281/zenodo.23923242"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23923241"
+    description: "All versions; resolves to the latest release."
 license: CC-BY-4.0
 repository-code: "https://github.com/Eden-Eldith/uk-small-model-census"
-url: "https://huggingface.co/datasets/edeneldith/uk-small-model-census"
+url: "https://zenodo.org/records/23923242"
